@@ -1,51 +1,59 @@
 $(function () {
-    "use strict";
 
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
-
-    $('.form-cadastro').on('submit', function () {
-        var check = true;
-
-        for (var i = 0; i < input.length; i++) {
-            if (validate(input[i]) == false) {
-                showValidate(input[i]);
-                check = false;
-            }
-        }
-
-        return check;
+    $("#regularmenteS").click(function () {
+        $("#divRegular").css("display", "block");
+    });
+    $("#regularmenteN").click(function () {
+        $("#divRegular").css("display", "none");
     });
 
-
-    $('.form-cadastro .validacao').each(function () {
-        $(this).focus(function () {
-            hideValidate(this);
-        });
+    $("#restricaoS").click(function () {
+        $("#divRestricao").css("display", "block");
+    });
+    $("#restricaoN").click(function () {
+        $("#divRestricao").css("display", "none");
     });
 
-    function validate(input) {
-        if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-            return false;
-        }
-        else {
-            if ($(input).val().trim() == '') {
-                return false;
-            }
-        }
-    }
+    $("#cirungiaS").click(function () {
+        $("#divCirungia").css("display", "block");
+    });
+    $("#cirungiaN").click(function () {
+        $("#divCirungia").css("display", "none");
+    });
 
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
+    $("#alergiaS").click(function () {
+        $("#divAlergia").css("display", "block");
+    });
+    $("#alergiaN").click(function () {
+        $("#divAlergia").css("display", "none");
+    });
 
-        $(thisAlert).addClass('alert-validate');
-    }
+    $("#osteoS").click(function () {
+        $("#divOsteo").css("display", "block");
+    });
+    $("#osteoN").click(function () {
+        $("#divOsteo").css("display", "none");
+    });
 
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
+    $("#cardioS").click(function () {
+        $("#divCardio").css("display", "block");
+    });
+    $("#cardioN").click(function () {
+        $("#divCardio").css("display", "none");
+    });
 
-        $(thisAlert).removeClass('alert-validate');
-    }
+    $("#medicS").click(function () {
+        $("#divMedic").css("display", "block");
+    });
+    $("#medicN").click(function () {
+        $("#divMedic").css("display", "none");
+    });
+
+    $("#suplemS").click(function () {
+        $("#divSuplem").css("display", "block");
+    });
+    $("#suplemN").click(function () {
+        $("#divSuplem").css("display", "none");
+    });
 
 });

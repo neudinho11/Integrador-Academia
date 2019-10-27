@@ -5,7 +5,7 @@ $(function () {
     [ Validate ]*/
     var input = $('.validate-input .input100 .validacao');
 
-    $('.form-senha').on('submit', function (e) {
+    /*$('.form-senha').on('submit', function (e) {
         var check = true;
 
         for (var i = 0; i < input.length; i++) {
@@ -17,7 +17,7 @@ $(function () {
         }
 
         return check;
-    });
+    });*/
 
 
     $('.form-senha .validacao').each(function () {
