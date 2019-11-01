@@ -1,24 +1,7 @@
 $(function () {
     "use strict";
 
-    /*==================================================================
-    [ Validate ]*/
     var input = $('.validate-input .input100 .validacao');
-
-    /*$('.form-senha').on('submit', function (e) {
-        var check = true;
-
-        for (var i = 0; i < input.length; i++) {
-            if (validate(input[i]) == false) {
-                showValidate(input[i]);
-                check = false;
-                e.preventDefault();
-            }
-        }
-
-        return check;
-    });*/
-
 
     $('.form-senha .validacao').each(function () {
         $(this).focus(function () {

@@ -1,24 +1,7 @@
 $(function () {
     "use strict";
 
-    /*==================================================================
-    [ Validate ]*/
     var input = $('.validate-input .input100');
-
-    /*$('.form-cadastro').on('submit', function (e) {
-        var check = true;
-
-        for (var i = 0; i < input.length; i++) {
-            if (validate(input[i]) == false) {
-                showValidate(input[i]);
-                check = false;
-                e.preventDefault();
-            }
-        }
-
-        return check;
-    });*/
-
 
     $('.form-cadastro .validacao').each(function () {
         $(this).focus(function () {
