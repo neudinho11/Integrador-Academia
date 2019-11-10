@@ -11,3 +11,7 @@
 .altDisplay{
     display: none;
 }
+
+label{ 
+    font-weight: bold;
+}

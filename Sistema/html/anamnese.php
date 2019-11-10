@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 	<title>Anamnese</title>
@@ -21,10 +21,11 @@
 
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
-			<form class="form-horizontal form-cadastro corLabel" action="login.html">
+			<form class="form-horizontal form-cadastro corLabel" action="index.php">
 				<legend class="positionElem">
 					<h2>ANAMNESE</h2>
 				</legend>
+				<hr>
 				<label>Objetivos com relação a atividades física na academia:</label><br>
 				<div class="cor" required>
 					<label>

@@ -5,6 +5,15 @@
     border-radius: 15px;
 }
 
+.radio{
+    border-radius: 7px;
+    padding: 4px;
+}
+
 .positionElem{
     text-align: center;
+}
+
+label{ 
+    font-weight: bold;
 }

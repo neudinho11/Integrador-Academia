@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 	<title>Nova Senha</title>
@@ -21,11 +21,11 @@
 
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
-			<form class="form-horizontal form-senha" action="login.html">
+			<form class="form-horizontal form-senha" action="index.php">
 				<legend class="positionElem">
 					<h2>Nova Senha</h2>
 				</legend>
-
+				<hr>
 				<div class="wrap-input100 validate-input m-b-10">
 					<label for="txtEmailS">E-mail : </label>
 					<input id="txtEmailS" name="txtEmailS" type="email" placeholder="E-mail"

@@ -530,5 +530,7 @@ iframe {
 
 /*/////////////////////////////////////////////////*/
 .cor{
+  border-radius: 7px;
+  padding: 4px;
   background-color: white;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 	<title>Login</title>
@@ -26,7 +26,7 @@
 					<div class="login100-form-avatar">
 						<img src="../images/logo.jpg" alt="AVATAR">
 					</div>
-
+					
 					<div class="wrap-input100 validate-input m-b-10 p-t-5" data-validate="Informe a matricula">
 						<input class="input100" type="text" name="username" placeholder="Matricula">
 						<span class="focus-input100"></span>
@@ -50,13 +50,13 @@
 					</div>
 				</form>
 				<div class="text-center w-full p-t-25 p-b-20">
-					<a href="newSenha.html" class="txt1" id="linkSenha">
+					<a href="newSenha.php" class="txt1" id="linkSenha">
 						Esqueceu sua senha?
 					</a>
 				</div>
 				<div class="text-center w-full p-t-25">
 					<button class="btn btn-secondary">
-						<a class="txt1" href="cadastro.html">Cadastre-se</a>
+						<a class="txt1" href="cadastro.php">Cadastre-se</a>
 					</button>
 				</div>
 			</div>

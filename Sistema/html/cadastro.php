@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 	<title>Cadastro</title>
@@ -21,8 +21,8 @@
 
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
-			<form class="form-horizontal form-cadastro" action="login.html">
-				<legend class="positionElem"><h2>Cadastro</h2></legend>
+			<form class="form-horizontal form-cadastro" action="index.php">
+				<legend class="positionElem"><h2>Cadastro</h2></legend><hr>
 				<div class="wrap-input100 validate-input m-b-10">
 					<label for="txtNome">Nome : </label>
 					<input id="txtNome" name="txtNome" type="text" placeholder="Nome"
@@ -33,7 +33,7 @@
 					<input id="txtEmail" name="txtEmail" type="email" placeholder="E-mail"
 						class="form-control input-md validacao" required="">
 				</div>
-				<div class="wrap-input100 validate-input m-b-10">
+				<!--<div class="wrap-input100 validate-input m-b-10">
 					<label for="txtMatricula">Matricula : </label>
 					<input id="txtMatricula" name="txtMatricula" type="text" placeholder="Matricula"
 						class="form-control input-md validacao" required="">
@@ -42,12 +42,27 @@
 					<label for="txtSenha">Senha : </label>
 					<input id="txtSenha" name="txtSenha" type="password" placeholder="Senha"
 						class="form-control input-md validacao" required="">
+				</div>-->
+				<div class="row">
+				<div class="form-group col-md-6">
+					<label for="txtMatricula">Matricula : </label>
+					<input id="txtMatricula" name="txtMatricula" type="text" placeholder="Matricula"
+						class="form-control input-md validacao" required="">
 				</div>
-				<div class="wrap-input100 validate-input m-b-10">
+				<div class="form-group col-md-6">
+					<label for="txtSenha">Senha : </label>
+					<input id="txtSenha" name="txtSenha" type="password" placeholder="Senha"
+						class="form-control input-md validacao" required="">
+				</div>
+				</div>
+
+				<div class="row">
+				<div class="form-group col-md-6">
 					<label for="txtDataNasc">Data de Nascimento : </label>
 					<input id="txtDataNasc" name="txtDataNasc" type="text" placeholder="Data de Nascimento"
 						class="form-control input-md validacao" required="">
 				</div>
+				<div class="form-group col-md-6">
 				<label>Sexo : </label><br>
 				<div class="cor">
 					<label>
@@ -56,6 +71,8 @@
 					<label>
 						<input type="radio" name="sexo" value="F" required> Feminino
 					</label>
+				</div>
+				</div>
 				</div>
 				<div class="wrap-input100 validate-input m-b-10">
 					<label for="txtCargo">Cargo : </label>
