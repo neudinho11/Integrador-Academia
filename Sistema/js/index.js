@@ -3,6 +3,17 @@ $(function () {
 
     var input = $('.validate-input .input100');
 
+    $("#btnLogin").on("click", function () {
+        var login = $("#txtLogin").val();
+        var senha = $("#txtSenha").val();
+
+        var ajax = new XMLHttpRequest();
+        ajax.open("POST", "processarLogin.php");
+        ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        ajax.send("l=" + login + "&s=" + senha);
+    });
+
     $('.validate-form').on('submit', function (e) {
         var check = true;
 

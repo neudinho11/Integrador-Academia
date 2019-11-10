@@ -1,3 +1,15 @@
+<?php
+	session_start();
+
+	$erroLogin = false;
+	if(isset($_GET["e"]) && $_GET["e"] == "login")
+        $erroLogin = true;
+	
+	$erroAutenticacao = false;
+	if(isset($_GET["e"]) && $_GET["e"] == "autenticacao")
+		$erroAutenticacao = true;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -26,9 +38,9 @@
 					<div class="login100-form-avatar">
 						<img src="../images/logo.jpg" alt="AVATAR">
 					</div>
-					
+
 					<div class="wrap-input100 validate-input m-b-10 p-t-5" data-validate="Informe a matricula">
-						<input class="input100" type="text" name="username" placeholder="Matricula">
+						<input id="txtLogin" class="input100" type="text" name="username" placeholder="Matricula">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user"></i>
@@ -36,7 +48,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-10" data-validate="Informe a senha">
-						<input class="input100" type="password" name="pass" placeholder="Senha">
+						<input id="txtSenha" class="input100" type="password" name="pass" placeholder="Senha">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock"></i>
@@ -44,11 +56,22 @@
 					</div>
 
 					<div class="container-login100-form-btn p-t-10">
-						<button class="login100-form-btn">
+						<button id="btnLogin" class="login100-form-btn">
 							Login
 						</button>
 					</div>
 				</form>
+
+				<?php
+					if($erroLogin){
+						echo "<div class='alert alert-danger' role='alert'>E-mail e/ou senha incorreto</div>";
+					}
+					else if($erroAutenticacao){
+						echo "<div class='alert alert-danger' role='alert'>Efetue o login primeiro</div>";
+					}
+				?>
+
+				
 				<div class="text-center w-full p-t-25 p-b-20">
 					<a href="newSenha.php" class="txt1" id="linkSenha">
 						Esqueceu sua senha?
@@ -63,14 +86,11 @@
 		</div>
 	</div>
 
-
-
-
-	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="../vendor/bootstrap/js/popper.js"></script>
 	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../vendor/select2/select2.min.js"></script>
-	<script src="../js/login.js"></script>
+	<script src="../js/index.js"></script>
 
 </body>
 
