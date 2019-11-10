@@ -1,13 +1,13 @@
-.divPrincipal{
+.divPrincipal {
     background-color: #d5d0d0;
     padding: 1%;
     border-radius: 15px;
 }
 
-.txt1{
+.txt1 {
     color: black;
 }
 
-a#linkSenha:hover{
+a#linkSenha:hover {
     background: #1185e9;
 }

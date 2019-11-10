@@ -23,7 +23,7 @@
 		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
 			<form class="form-horizontal form-avaliacao" action="index.php">
 				<legend class="positionElem">
-					<h2 >Avaliação</h2>
+					<h2>Avaliação</h2>
 				</legend>
 				<hr>
 				<div class="row">
@@ -100,10 +100,11 @@
 						<input id="txtPantE" name="txtPantE" type="text" placeholder="Panturrilha" class="form-control input-md" required="">
 					</div>
 				</div>
+				<hr>
 				<div class="positionElem">
 					<button id="btnAval" name="btnAval" class="btn btn-success">Cadastrar Avaliação</button>
 				</div>
-				
+
 			</form>
 		</div>
 	</div>
@@ -115,7 +116,7 @@
 	<script src="../vendor/bootstrap/js/popper.js"></script>
 	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../vendor/select2/select2.min.js"></script>
-	<script src="../js/cadastro.js"></script>
+	<script src="../js/avaliacao.js"></script>
 
 </body>
 

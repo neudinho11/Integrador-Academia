@@ -1,4 +1,4 @@
-.form-avaliacao {
+.principal {
     background-color: #d5d0d0;
     padding: 7px;
     width: 40%;
@@ -12,8 +12,4 @@
 
 .positionElem {
     text-align: center;
-}
-
-label {
-    font-weight: bold;
 }

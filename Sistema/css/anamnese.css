@@ -1,17 +1,17 @@
-.corLabel{
+.corLabel {
     background-color: #d5d0d0;
     padding: 7px;
     border-radius: 15px;
 }
 
-.positionElem{
+.positionElem {
     text-align: center;
 }
 
-.altDisplay{
+.altDisplay {
     display: none;
 }
 
-label{ 
+label {
     font-weight: bold;
 }

@@ -1,13 +1,13 @@
 <?php
-	session_start();
+session_start();
 
-	$erroLogin = false;
-	if(isset($_GET["e"]) && $_GET["e"] == "login")
-        $erroLogin = true;
-	
-	$erroAutenticacao = false;
-	if(isset($_GET["e"]) && $_GET["e"] == "autenticacao")
-		$erroAutenticacao = true;
+$erroLogin = false;
+if (isset($_GET["e"]) && $_GET["e"] == "login")
+	$erroLogin = true;
+
+$erroAutenticacao = false;
+if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
+	$erroAutenticacao = true;
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
 	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/util.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
 
 <body>
@@ -62,16 +62,17 @@
 					</div>
 				</form>
 
+
+
 				<?php
-					if($erroLogin){
-						echo "<div class='alert alert-danger' role='alert'>E-mail e/ou senha incorreto</div>";
-					}
-					else if($erroAutenticacao){
-						echo "<div class='alert alert-danger' role='alert'>Efetue o login primeiro</div>";
-					}
+				if ($erroLogin) {
+					echo "<div class='alert alert-danger' role='alert'>E-mail e/ou senha incorreto</div>";
+				} else if ($erroAutenticacao) {
+					echo "<div class='alert alert-danger' role='alert'>Efetue o login primeiro</div>";
+				}
 				?>
 
-				
+
 				<div class="text-center w-full p-t-25 p-b-20">
 					<a href="newSenha.php" class="txt1" id="linkSenha">
 						Esqueceu sua senha?

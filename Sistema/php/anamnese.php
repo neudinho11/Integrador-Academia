@@ -55,10 +55,8 @@
 					</label>
 				</div>
 				<div id="divRegular" class="wrap-input100 m-b-10 txtInput altDisplay">
-					<input id="txtregularmente" name="txtregularmente" type="text" placeholder="Qual(ais)?"
-						class="form-control input-md" required="">
-					<input id="txtregularmenteF" name="txtregularmenteF" type="text"
-						placeholder="Qual é a frequência semanal?" class="form-control input-md" required="">
+					<input id="txtregularmente" name="txtregularmente" type="text" placeholder="Qual(ais)?" class="form-control input-md" required="">
+					<input id="txtregularmenteF" name="txtregularmenteF" type="text" placeholder="Qual é a frequência semanal?" class="form-control input-md" required="">
 				</div>
 
 
@@ -72,8 +70,7 @@
 					</label>
 				</div>
 				<div id="divRestricao" class="wrap-input100 m-b-10 altDisplay">
-					<input id="txtrestricao" name="txtrestricao" type="text" placeholder="Qual?"
-						class="form-control input-md" required="">
+					<input id="txtrestricao" name="txtrestricao" type="text" placeholder="Qual?" class="form-control input-md" required="">
 				</div>
 
 				<label>Foi submetido a algum tipo de cirurgia?</label><br>
@@ -86,8 +83,7 @@
 					</label>
 				</div>
 				<div id="divCirungia" class="wrap-input100 m-b-10 altDisplay">
-					<input id="txtcirurgia" name="txtcirurgia" type="text" placeholder="Especifique?"
-						class="form-control input-md" required="">
+					<input id="txtcirurgia" name="txtcirurgia" type="text" placeholder="Especifique?" class="form-control input-md" required="">
 				</div>
 
 				<label>Possui algum tipo de alergia?</label><br>
@@ -100,8 +96,7 @@
 					</label>
 				</div>
 				<div id="divAlergia" class="wrap-input100 m-b-10 altDisplay">
-					<input id="txtalergia" name="txtalergia" type="text" placeholder="Especifique?"
-						class="form-control input-md" required="">
+					<input id="txtalergia" name="txtalergia" type="text" placeholder="Especifique?" class="form-control input-md" required="">
 				</div>
 
 				<label>Sofreu algum tipo de acidente ou lesão osteomuscular?</label><br>
@@ -114,8 +109,7 @@
 					</label>
 				</div>
 				<div id="divOsteo" class="wrap-input100 m-b-10 altDisplay">
-					<input id="txtosteomuscular" name="txtosteomuscular" type="text" placeholder="Especifique?"
-						class="form-control input-md" required="">
+					<input id="txtosteomuscular" name="txtosteomuscular" type="text" placeholder="Especifique?" class="form-control input-md" required="">
 				</div>
 
 				<label>Existe na família histórico de cardiopatia?</label><br>
@@ -128,8 +122,7 @@
 					</label>
 				</div>
 				<div id="divCardio" class="wrap-input100 m-b-10 altDisplay">
-					<input id="txtcardiopatia" name="txtcardiopatia" type="text" placeholder="Especifique?"
-						class="form-control input-md" required="">
+					<input id="txtcardiopatia" name="txtcardiopatia" type="text" placeholder="Especifique?" class="form-control input-md" required="">
 				</div>
 
 				<label>Utiliza regularmente algum tipo de medicamento?</label><br>
@@ -142,8 +135,7 @@
 					</label>
 				</div>
 				<div id="divMedic" class="wrap-input100 m-b-10 altDisplay">
-					<input id="txtmedicamento" name="txtmedicamento" type="text" placeholder="Especifique?"
-						class="form-control input-md" required="">
+					<input id="txtmedicamento" name="txtmedicamento" type="text" placeholder="Especifique?" class="form-control input-md" required="">
 				</div>
 
 				<label>Utiliza regularmente algum tipo de suplemento?</label><br>
@@ -156,8 +148,7 @@
 					</label>
 				</div>
 				<div id="divSuplem" class="wrap-input100 m-b-10 altDisplay">
-					<input id="txtsuplemento" name="txtsuplemento" type="text" placeholder="Especifique?"
-						class="form-control input-md" required="">
+					<input id="txtsuplemento" name="txtsuplemento" type="text" placeholder="Especifique?" class="form-control input-md" required="">
 				</div>
 
 				<label>Tem ou teve o hábito de fumar?</label><br>
@@ -219,12 +210,9 @@
 						<input type="radio" name="pressao" value="N" required> Não
 					</label>
 				</div>
-				<br>
+				<hr>
 				<div class="positionElem">
 					<button id="btnsalvarA" name="btnsalvarA" class="btn btn-success">Salvar</button>
-					<!--<button id="btncancelarA" name="btncancelarA" class="btn btn-danger">
-						<a class="txt1" href="login.html">Cancelar</a>
-					</button>-->
 				</div>
 			</form>
 		</div>
