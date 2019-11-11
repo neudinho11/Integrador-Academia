@@ -1,3 +1,7 @@
+<?php
+	require "processarLogin.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

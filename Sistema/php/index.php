@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 
 $erroLogin = false;
 if (isset($_GET["e"]) && $_GET["e"] == "login")
@@ -7,7 +7,7 @@ if (isset($_GET["e"]) && $_GET["e"] == "login")
 
 $erroAutenticacao = false;
 if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
-	$erroAutenticacao = true;
+	$erroAutenticacao = true;*/
 ?>
 
 <!DOCTYPE html>
@@ -34,13 +34,13 @@ if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
 			<div class="wrap-login100 p-t-135 p-b-60 divPrincipal">
-				<form class="login100-form validate-form p-l-10 p-r-10 p-t-10 p-b-10">
+				<form method="post" action="processarLogin.php" class="login100-form validate-form p-l-10 p-r-10 p-t-10 p-b-10">
 					<div class="login100-form-avatar">
 						<img src="../images/logo.jpg" alt="AVATAR">
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-10 p-t-5" data-validate="Informe a matricula">
-						<input id="txtLogin" class="input100" type="text" name="username" placeholder="Matricula">
+						<input id="txtLogin" class="input100" type="text" name="txtLogin" placeholder="Matricula">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user"></i>
@@ -48,7 +48,7 @@ if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-10" data-validate="Informe a senha">
-						<input id="txtSenha" class="input100" type="password" name="pass" placeholder="Senha">
+						<input id="txtSenha" class="input100" type="password" name="txtSenha" placeholder="Senha">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock"></i>
@@ -62,16 +62,15 @@ if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
 					</div>
 				</form>
 
-
-
 				<?php
-				if ($erroLogin) {
-					echo "<div class='alert alert-danger' role='alert'>E-mail e/ou senha incorreto</div>";
-				} else if ($erroAutenticacao) {
-					echo "<div class='alert alert-danger' role='alert'>Efetue o login primeiro</div>";
-				}
+					/*if ($erroLogin) {
+						echo "<div class='alert alert-danger' role='alert'><strong>E-mail e/ou senha incorreto</strong></div>";
+						$erroLogin = false;
+					} else if ($erroAutenticacao) {
+						echo "<div class='alert alert-danger' role='alert'><strong>Efetue o login primeiro</strong></div>";
+						$erroAutenticacao = false;
+					}*/
 				?>
-
 
 				<div class="text-center w-full p-t-25 p-b-20">
 					<a href="newSenha.php" class="txt1" id="linkSenha">

@@ -1,8 +1,8 @@
 <?php
-    session_start();
+    /*session_start();
 
-    $login = $_POST["l"];
-    $senha = $_POST["s"];
+    $login = $_POST["txtLogin"];
+    $senha = $_POST["txtSenha"];
 
     if(!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] != true){
         header("Location: index.php?e=autenticacao");
@@ -13,5 +13,5 @@
     }
     else{
         header("Location: index.php?e=login");
-    }
+    }*/
 ?>
