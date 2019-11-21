@@ -1,13 +1,9 @@
 <?php
-/*session_start();
+session_start();
 
 $erroLogin = false;
-if (isset($_GET["e"]) && $_GET["e"] == "login")
+if (isset($_GET["erro"]) && $_GET["erro"] == "e")
 	$erroLogin = true;
-
-$erroAutenticacao = false;
-if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
-	$erroAutenticacao = true;*/
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +14,8 @@ if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="../images/icons/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
@@ -34,7 +31,7 @@ if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
 			<div class="wrap-login100 p-t-135 p-b-60 divPrincipal">
-				<form method="post" action="processarLogin.php" class="login100-form validate-form p-l-10 p-r-10 p-t-10 p-b-10">
+				<form method="post" action="login.php" class="login100-form validate-form p-l-10 p-r-10 p-t-10 p-b-10">
 					<div class="login100-form-avatar">
 						<img src="../images/logo.jpg" alt="AVATAR">
 					</div>
@@ -63,13 +60,10 @@ if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
 				</form>
 
 				<?php
-					/*if ($erroLogin) {
-						echo "<div class='alert alert-danger' role='alert'><strong>E-mail e/ou senha incorreto</strong></div>";
+					if ($erroLogin) {
+						echo "<div class='alert alert-danger' role='alert'><strong>Erro no Login</strong></div>";
 						$erroLogin = false;
-					} else if ($erroAutenticacao) {
-						echo "<div class='alert alert-danger' role='alert'><strong>Efetue o login primeiro</strong></div>";
-						$erroAutenticacao = false;
-					}*/
+					}
 				?>
 
 				<div class="text-center w-full p-t-25 p-b-20">
@@ -78,7 +72,7 @@ if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
 					</a>
 				</div>
 				<div class="text-center w-full p-t-25">
-					<button class="btn btn-secondary">
+					<button class="btn btn-warning">
 						<a class="txt1" href="cadastro.php">Cadastre-se</a>
 					</button>
 				</div>
@@ -87,8 +81,8 @@ if (isset($_GET["e"]) && $_GET["e"] == "autenticacao")
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="../vendor/bootstrap/js/popper.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../vendor/select2/select2.min.js"></script>
 	<script src="../js/index.js"></script>
 

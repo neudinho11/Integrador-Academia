@@ -1,19 +1,45 @@
-.form-cadastro{
-    background-color: #d5d0d0;
-    padding: 7px;
-    width: 40%;
-    border-radius: 15px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.radio{
-    border-radius: 7px;
-    padding: 4px;
+body {
+    background-image: url('../images/img1.jpg');
 }
 
-.positionElem{
+.formCadastro {
+    background-color: white;
+    margin-top: 5%;
+    width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.radio {
+    font-weight: normal;
+}
+
+.positionElem {
     text-align: center;
 }
 
-label{ 
+label {
     font-weight: bold;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.valid {
+    border: 2px solid green;
+}
+
+.erro {
+    display: block;
+    color: red;
+}
+
+.noErro {
+    display: none;
 }

@@ -4,118 +4,119 @@
 <head>
 	<title>Visualizar Avaliação</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="../images/icons/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/util.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="../css/visualizarAvaliacao.css">
 </head>
 
 <body>
 
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
-			<div class="principal">
-				<legend class="positionElem">
-					<h2>Visualizar Avaliação</h2>
-				</legend>
-				<hr>
-				<div class="row">
-					<div class="form-group col-md-4">
-						<p><strong>Pressão Arterial : </strong></p>
-						<p id="txtPressaoV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Peso : </strong></p>
-						<p id="txtPesoV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Altura : </strong></p>
-						<p id="txtAlturaV" class="visualizar"></p>
-					</div>
-				</div>
+	<?php
+	include "menu.php";
+	?>
 
-				<div class="row">
-					<div class="form-group col-md-4">
-						<p><strong>Pescoço : </strong></p>
-						<p id="txtPescocoV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Biceps Direito : </strong></p>
-						<p id="txtBicepsDV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Biceps Esquerdo : </strong></p>
-						<p id="txtBicepsEV" class="visualizar"></p>
-					</div>
-				</div>
+	<div class="container principal">
+		<legend class="positionElem">
+			<h2>VISUALIZAR AVALIAÇÃO</h2>
+		</legend>
 
-				<div class="row">
-					<div class="form-group col-md-4">
-						<p><strong>Peito : </strong></p>
-						<p id="txtPeitoV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Antebraço Direito : </strong></p>
-						<p id="txtAntDV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Antebraço Esquerdo : </strong></p>
-						<p id="txtAntEV" class="visualizar"></p>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-md-4">
-						<p><strong>Cintura : </strong></p>
-						<p id="txtCinturaV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Coxa Direito : </strong></p>
-						<p id="txtCoxaDV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Coxa Esquerda : </strong></p>
-						<p id="txtCoxaEV" class="visualizar"></p>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-md-4">
-						<p><strong>Quadris : </strong></p>
-						<p id="txtQuadrisV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Panturrilha Direito : </strong></p>
-						<p id="txtPantDV" class="visualizar"></p>
-					</div>
-					<div class="form-group col-md-4">
-						<p><strong>Panturrilha Esquerda : </strong></p>
-						<p id="txtPantEV" class="visualizar"></p>
-					</div>
-				</div>
-				<hr>
-				<div class="positionElem">
-					<button id="btnEditarA" name="btnEditarA" class="btn btn-success">Editar</button>
-				</div>
-
+		<div class="row">
+			<div class="form-group col-md-4"></div>
+			<div class="form-group col-md-4">
+				<p><strong>Data Avaliação : </strong></p>
+				<p><input id="txtDataV" type="text" readonly></p>
 			</div>
+			<div class="form-group col-md-4"></div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-md-3">
+				<p><strong>Pressão Arterial : </strong></p>
+				<p><input id="txtPressaoV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-3">
+				<p><strong>Peso : </strong></p>
+				<p><input id="txtPesoV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-3">
+				<p><strong>Altura : </strong></p>
+				<p><input id="txtAlturaV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-3">
+				<p><strong>IMC : </strong></p>
+				<p><input id="txtImcV" type="text" readonly></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-md-4">
+				<p><strong>Pescoço : </strong></p>
+				<p><input id="txtPescocoV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Biceps Direito : </strong></p>
+				<p><input id="txtBicepsDV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Biceps Esquerdo : </strong></p>
+				<p><input id="txtBicepsEV" type="text" readonly></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-md-4">
+				<p><strong>Peito : </strong></p>
+				<p><input id="txtPeitoV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Antebraço Direito : </strong></p>
+				<p><input id="txtAntDV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Antebraço Esquerdo : </strong></p>
+				<p><input id="txtAntEV" type="text" readonly></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-md-4">
+				<p><strong>Cintura : </strong></p>
+				<p><input id="txtCinturaV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Coxa Direito : </strong></p>
+				<p><input id="txtCoxaDV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Coxa Esquerda : </strong></p>
+				<p><input id="txtCoxaEV" type="text" readonly></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-md-4">
+				<p><strong>Quadris : </strong></p>
+				<p><input id="txtQuadrisV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Panturrilha Direito : </strong></p>
+				<p><input id="txtPantDV" type="text" readonly></p>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Panturrilha Esquerda : </strong></p>
+				<p><input id="txtPantEV" type="text" readonly></p>
+			</div>
+		</div>
+		<hr>
+		<div class="positionElem">
+			<button id="btnEditarA" name="btnEditarA" class="btn btn-success">Editar</button>
 		</div>
 	</div>
 
-
-
-
-	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="../vendor/bootstrap/js/popper.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="../vendor/select2/select2.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="../js/visualizarAvaliacao.js"></script>
 
 </body>

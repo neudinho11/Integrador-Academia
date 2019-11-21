@@ -1,15 +1,12 @@
 .principal {
-    background-color: #d5d0d0;
-    padding: 7px;
+    margin-top: 5%;
     width: 40%;
-    border-radius: 15px;
-}
-
-.radio {
-    border-radius: 7px;
-    padding: 4px;
 }
 
 .positionElem {
     text-align: center;
+}
+
+.visualizar {
+    font-weight: normal;
 }

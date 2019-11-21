@@ -1,59 +1,61 @@
-$(function () {
+$(function() {
 
-    $("#regularmenteS").click(function () {
+    $("#regularmenteS").click(function() {
         $("#divRegular").css("display", "block");
     });
-    $("#regularmenteN").click(function () {
+    $("#regularmenteN").click(function() {
         $("#divRegular").css("display", "none");
     });
 
-    $("#restricaoS").click(function () {
+    $("#restricaoS").click(function() {
         $("#divRestricao").css("display", "block");
     });
-    $("#restricaoN").click(function () {
+    $("#restricaoN").click(function() {
         $("#divRestricao").css("display", "none");
     });
 
-    $("#cirungiaS").click(function () {
+    $("#cirungiaS").click(function() {
         $("#divCirungia").css("display", "block");
     });
-    $("#cirungiaN").click(function () {
+    $("#cirungiaN").click(function() {
         $("#divCirungia").css("display", "none");
     });
 
-    $("#alergiaS").click(function () {
+    $("#alergiaS").click(function() {
         $("#divAlergia").css("display", "block");
     });
-    $("#alergiaN").click(function () {
+    $("#alergiaN").click(function() {
         $("#divAlergia").css("display", "none");
     });
 
-    $("#osteoS").click(function () {
+    $("#osteoS").click(function() {
         $("#divOsteo").css("display", "block");
     });
-    $("#osteoN").click(function () {
+    $("#osteoN").click(function() {
         $("#divOsteo").css("display", "none");
     });
 
-    $("#cardioS").click(function () {
+    $("#cardioS").click(function() {
         $("#divCardio").css("display", "block");
     });
-    $("#cardioN").click(function () {
+    $("#cardioN").click(function() {
         $("#divCardio").css("display", "none");
     });
 
-    $("#medicS").click(function () {
+    $("#medicS").click(function() {
         $("#divMedic").css("display", "block");
     });
-    $("#medicN").click(function () {
+    $("#medicN").click(function() {
         $("#divMedic").css("display", "none");
     });
 
-    $("#suplemS").click(function () {
+    $("#suplemS").click(function() {
         $("#divSuplem").css("display", "block");
     });
-    $("#suplemN").click(function () {
+    $("#suplemN").click(function() {
         $("#divSuplem").css("display", "none");
     });
+
+    $(".rad").checkboxradio();
 
 });

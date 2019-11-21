@@ -1,7 +1,17 @@
-.form-senha {
-    background-color: #d5d0d0;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../images/img1.jpg');
+}
+
+.formSenha {
+    background-color: white;
+    margin-top: 10%;
     padding: 7px;
-    width: 30%;
+    width: 40%;
     border-radius: 10px;
 }
 

@@ -9,7 +9,6 @@ create table treinador(
     senha varchar(45),
     data_nascimento date,
     sexo varchar(45),
-    cargo varchar(45),
     tipo_conta varchar(45)
 );
 
@@ -21,7 +20,6 @@ create table usuario(
     senha varchar(80),
     data_nascimento date,
     sexo varchar(80),
-    cargo varchar(80),
     tipo_conta varchar(80)
 );
 

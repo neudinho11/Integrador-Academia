@@ -1,3 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.formAnamnese {
+    margin-top: 5%;
+    width: 50%;
+}
+
 .corLabel {
     background-color: #d5d0d0;
     padding: 7px;

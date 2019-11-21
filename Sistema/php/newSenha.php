@@ -4,59 +4,46 @@
 <head>
 	<title>Nova Senha</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="../images/icons/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/util.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="../css/newSenha.css">
 </head>
 
 <body>
-
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
-			<form class="form-horizontal form-senha" action="index.php">
-				<legend class="positionElem">
-					<h2>Nova Senha</h2>
-				</legend>
-				<hr>
-				<div class="wrap-input100 validate-input m-b-10">
+	<div class="container formSenha">
+		<form id="form_senha" action="" method="POST">
+			<legend class="positionElem">
+				<h2>NOVA SENHA</h2>
+			</legend>
+			<div class="row">
+				<div class="form-group col-md-2"></div>
+				<div class="form-group col-md-8">
 					<label for="txtEmailS">E-mail : </label>
 					<input id="txtEmailS" name="txtEmailS" type="email" placeholder="E-mail" class="form-control input-md validacao" required="">
 				</div>
-				<div class="wrap-input100 validate-input m-b-10">
+				<div class="form-group col-md-2"></div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-2"></div>
+				<div class="form-group col-md-8">
 					<label for="txtMatriculaS">Matricula : </label>
 					<input id="txtMatriculaS" name="txtMatriculaS" type="text" placeholder="Matricula" class="form-control input-md validacao" required="">
 				</div>
-				<div class="wrap-input100 validate-input m-b-10">
-					<label for="txtSenhaS">Nova Senha : </label>
-					<input id="txtSenhaS" name="txtSenhaS" type="password" placeholder="Senha" class="form-control input-md validacao" required="">
-				</div>
-				<div class="wrap-input100 validate-input m-b-10">
-					<label for="txtConfSenhaS">Confirmação de Senha : </label>
-					<input id="txtConfSenhaS" name="txtConfSenhaS" type="password" placeholder="Senha" class="form-control input-md validacao" required="">
-				</div>
-				<hr>
-				<div class="positionElem">
-					<button id="btnsalvarS" name="btnsalvarS" class="btn btn-success">Salvar</button>
-				</div>
-			</form>
-		</div>
+				<div class="form-group col-md-2"></div>
+			</div>
+
+			<hr>
+			<div class="positionElem">
+				<button id="btnsalvarS" name="btnsalvarS" class="btn btn-success">Enviar</button>
+			</div>
+		</form>
 	</div>
 
-
-
-
-	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="../vendor/bootstrap/js/popper.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="../vendor/select2/select2.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="../js/newSenha.js"></script>
 
 </body>

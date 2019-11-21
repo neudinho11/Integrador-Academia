@@ -4,109 +4,90 @@
 <head>
 	<title>Cadastro</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="../images/icons/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/util.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="../css/cadastro.css">
 </head>
 
 <body>
 
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
-			<form class="form-horizontal form-cadastro" action="index.php">
-				<legend class="positionElem">
-					<h2>Cadastro</h2>
-				</legend>
-				<hr>
-				<div class="wrap-input100 validate-input m-b-10">
-					<label for="txtNome">Nome : </label>
-					<input id="txtNome" name="txtNome" type="text" placeholder="Nome" class="form-control input-md validacao" required="">
+	<div class="container formCadastro">
+		<form id="form_cadastro" action="processarCad.php" method="POST">
+			<legend class="positionElem">
+				<h2>CADASTRO</h2>
+			</legend>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label for="txtNome">Nome Completo : </label>
+					<input id="txtNome" name="txtNome" type="text" placeholder="Nome" class="form-control" required="">
+					<div id="vNome" class="noErro"></div>
 				</div>
-				<div class="wrap-input100 validate-input m-b-10">
+				<div class="form-group col-md-6">
 					<label for="txtEmail">E-mail : </label>
-					<input id="txtEmail" name="txtEmail" type="email" placeholder="E-mail" class="form-control input-md validacao" required="">
+					<input id="txtEmail" name="txtEmail" type="email" placeholder="E-mail" class="form-control" required="">
+					<div id="vEmail" class="noErro"></div>
 				</div>
-				<!--<div class="wrap-input100 validate-input m-b-10">
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-4">
 					<label for="txtMatricula">Matricula : </label>
-					<input id="txtMatricula" name="txtMatricula" type="text" placeholder="Matricula"
-						class="form-control input-md validacao" required="">
+					<input id="txtMatricula" name="txtMatricula" type="text" placeholder="Matricula" class="form-control" required="">
+					<div id="vMat" class="noErro"></div>
 				</div>
-				<div class="wrap-input100 validate-input m-b-10">
+				<div class="form-group col-md-4">
 					<label for="txtSenha">Senha : </label>
-					<input id="txtSenha" name="txtSenha" type="password" placeholder="Senha"
-						class="form-control input-md validacao" required="">
-				</div>-->
-				<div class="row">
-					<div class="form-group col-md-6">
-						<label for="txtMatricula">Matricula : </label>
-						<input id="txtMatricula" name="txtMatricula" type="text" placeholder="Matricula" class="form-control input-md validacao" required="">
-					</div>
-					<div class="form-group col-md-6">
-						<label for="txtSenha">Senha : </label>
-						<input id="txtSenha" name="txtSenha" type="password" placeholder="Senha" class="form-control input-md validacao" required="">
-					</div>
+					<input id="txtSenha" name="txtSenha" type="password" placeholder="Senha" class="form-control" required="">
+					<div id="vSenha" class="noErro"></div>
 				</div>
+				<div class="form-group col-md-4">
+					<label for="txtSenhaConf">Confirme Senha : </label>
+					<input id="txtSenhaConf" name="txtSenhaConf" type="password" placeholder="Senha" class="form-control" required="">
+					<div id="vSenha2" class="noErro"></div>
+				</div>
+			</div>
 
-				<div class="row">
-					<div class="form-group col-md-6">
-						<label for="txtDataNasc">Data de Nascimento : </label>
-						<input id="txtDataNasc" name="txtDataNasc" type="text" placeholder="Data de Nascimento" class="form-control input-md validacao" required="">
-					</div>
-					<div class="form-group col-md-6">
-						<label>Sexo : </label><br>
-						<div class="cor">
-							<label>
-								<input type="radio" name="sexo" value="M" required> Masculino
-							</label>
-							<label>
-								<input type="radio" name="sexo" value="F" required> Feminino
-							</label>
-						</div>
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label for="txtDataNasc">Data de Nascimento : </label>
+					<input id="txtDataNasc" name="txtDataNasc" type="date" placeholder="Data de Nascimento" class="form-control" required="">
+				</div>
+				<div class="form-group col-md-4">
+					<label>Sexo : </label><br>
+					<div class="radio">
+						<label>
+							<input class="rad" type="radio" name="radSexo" value="M" required> Masculino
+						</label>
+						<label>
+							<input class="rad" type="radio" name="radSexo" value="F" required> Feminino
+						</label>
 					</div>
 				</div>
-				<div class="row">
-					<div class="form-group col-md-6">
-						<label for="txtCargo">Cargo : </label>
-						<input id="txtCargo" name="txtCargo" type="text" placeholder="Cargo" class="form-control input-md  validacao" required="">
-					</div>
-					<div class="form-group col-md-6">
-						<label>Tipo de conta : </label>
-						<div class="cor">
-							<label>
-								<input type="radio" name="tipoConta" value="1" required> Usuário
-							</label>
-							<label>
-								<input type="radio" name="tipoConta" value="2" required> Treinador
-							</label>
-						</div>
+				<div class="form-group col-md-4">
+					<label>Tipo de conta : </label>
+					<div class="radio">
+						<label>
+							<input class="rad" type="radio" name="radTipoConta" value="usuario" required> Usuário
+						</label>
+						<label>
+							<input class="rad" type="radio" name="radTipoConta" value="treinador" required> Treinador
+						</label>
 					</div>
 				</div>
+			</div>
 
-				<hr>
-				<div class="positionElem">
-					<button id="btnsalvar" name="btnsalvar" class="btn btn-success">Salvar</button>
-				</div>
-			</form>
-		</div>
+			<hr>
+			<div class="positionElem">
+				<button id="btnsalvar" name="btnsalvar" class="btn btn-success">Salvar</button>
+			</div>
+		</form>
 	</div>
 
-
-
-
-	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="../vendor/bootstrap/js/popper.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="../vendor/select2/select2.min.js"></script>
-	<script src="../js/cadastro.js"></script>
-
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="../js/cadastro.js"></script>
 </body>
 
 </html>

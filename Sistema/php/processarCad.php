@@ -1,0 +1,40 @@
+<?php
+    require_once "conexaoBD.php";
+?>
+
+<?php
+    $nome = $_POST["txtNome"];
+    $email = $_POST["txtEmail"];
+    $matricula = $_POST["txtMatricula"];
+    $senha = $_POST["txtSenha"];
+    $dataNasc = $_POST["txtDataNasc"];
+    $sexo = $_POST["radSexo"];
+    $tipoConta = $_POST["radTipoConta"];
+
+    if($tipoConta == "usuario"){
+        $sql = "INSERT INTO usuario (nome, matricula, email, senha, data_nascimento, sexo, tipo_conta) VALUES (:nome, :matricula, :email, :senha, :data_nascimento, :sexo, :tipo_conta)";
+        $query = $conexao->prepare($sql);
+        $query->bindParam(":nome", $nome);
+        $query->bindParam(":matricula", $matricula);
+        $query->bindParam(":email", $email);
+        $query->bindParam(":senha", $senha);
+        $query->bindParam(":data_nascimento", $dataNasc);
+        $query->bindParam(":sexo", $sexo);
+        $query->bindParam(":tipo_conta", $tipoConta);
+        $resultado = $query->execute();
+        header("Location: index.php?msg=cadastrado");
+    }else{
+        $sql = "INSERT INTO treinador (nome, matricula, email, senha, data_nascimento, sexo, tipo_conta) VALUES (:nome, :matricula, :email, :senha, :data_nascimento, :sexo, :tipo_conta)";
+        $query = $conexao->prepare($sql);
+        $query->bindParam(":nome", $nome);
+        $query->bindParam(":matricula", $matricula);
+        $query->bindParam(":email", $email);
+        $query->bindParam(":senha", $senha);
+        $query->bindParam(":data_nascimento", $dataNasc);
+        $query->bindParam(":sexo", $sexo);
+        $query->bindParam(":tipo_conta", $tipoConta);
+        $resultado = $query->execute();
+        header("Location: index.php?msg=cadastrado");
+    }
+    
+?>
