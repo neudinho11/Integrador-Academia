@@ -1,9 +1,8 @@
 <?php
 session_start();
 
-$erroLogin = false;
-if (isset($_GET["erro"]) && $_GET["erro"] == "e")
-	$erroLogin = true;
+require_once "functions.php";
+	
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +30,11 @@ if (isset($_GET["erro"]) && $_GET["erro"] == "e")
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
 			<div class="wrap-login100 p-t-135 p-b-60 divPrincipal">
+				<?php
+					if (isset($_GET["e"]) && $_GET["e"] == true){
+						echo "<div class='alert alert-danger' role='alert'><strong>Erro no Login</strong></div>";
+					}
+				?>
 				<form method="post" action="login.php" class="login100-form validate-form p-l-10 p-r-10 p-t-10 p-b-10">
 					<div class="login100-form-avatar">
 						<img src="../images/logo.jpg" alt="AVATAR">
@@ -58,13 +62,6 @@ if (isset($_GET["erro"]) && $_GET["erro"] == "e")
 						</button>
 					</div>
 				</form>
-
-				<?php
-					if ($erroLogin) {
-						echo "<div class='alert alert-danger' role='alert'><strong>Erro no Login</strong></div>";
-						$erroLogin = false;
-					}
-				?>
 
 				<div class="text-center w-full p-t-25 p-b-20">
 					<a href="newSenha.php" class="txt1" id="linkSenha">

@@ -1,17 +1,94 @@
 $(function() {
 
+    $(".rad").checkboxradio();
+
+    $(document).ready(function() {
+        $("#form_cadastro").validate({
+            rules: {
+                txtNome: {
+                    required: true,
+                    minlength: 5
+                },
+                txtEmail: {
+                    required: true,
+                    email: true
+                },
+                txtMatricula: {
+                    required: true,
+                    digits: true
+                },
+                txtSenha: {
+                    required: true,
+                    minlength: 6
+                },
+                txtSenhaConf: {
+                    required: true,
+                    equalTo: "#txtSenha",
+                    minlength: 6
+                },
+                txtDataNasc: {
+                    required: true,
+                    date: true
+                },
+                radSexo: {
+                    required: true
+                },
+                radTipoConta: {
+                    required: true
+                }
+            },
+            messages: {
+                txtNome: {
+                    required: "Informe seu nome",
+                    minlength: "O nome deve ter mais de 5 caracteres"
+                },
+                txtEmail: {
+                    required: "Informe seu e-mail",
+                    email: "e-mail invalido"
+                },
+                txtMatricula: {
+                    required: "Informe a matricula",
+                    digits: "Informe somente numeros"
+                },
+                txtSenha: {
+                    required: "Informe a senha",
+                    minlength: "A senha deve ter mais de 6 caracteres"
+                },
+                txtSenhaConf: {
+                    required: "Informe a confirmação da senha",
+                    equalTo: "As senhas devem ser iguais",
+                    minlength: "A senha deve ter mais de 6 caracteres"
+                },
+                txtDataNasc: {
+                    required: "Informe a data de nascimento",
+                    date: "Data invalida"
+                },
+                radSexo: {
+                    required: "Informe o sexo"
+                },
+                radTipoConta: {
+                    required: "Informe o tipo de conta"
+                }
+            }
+        });
+    });
+
+})
+
+/*$(function() {
+
     var boole = true;
     var verificao;
 
     function inputInvalido(nInput, verif) {
         nInput.removeClass("valid").addClass("invalid");
-        verif.removeClass("noErro").addClass("erro");
+        verif.removeClass("noErro").addClass("error");
         boole = false;
     }
 
     function inputValido(nInput, verif) {
         nInput.removeClass("invalid").addClass("valid");
-        verif.removeClass("Erro").addClass("noErro");
+        verif.removeClass("Error").addClass("noErro");
         boole = true;
     }
 
@@ -110,4 +187,4 @@ $(function() {
 
     $(".rad").checkboxradio();
 
-});
+});*/

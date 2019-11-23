@@ -1,5 +1,5 @@
 <?php
-require_once "conexaoBD.php";
+require_once "functions.php";
 ?>
 
 <?php
@@ -14,6 +14,8 @@ class Usuario
     public $sexo;
     public $tipo_conta;
 }
+
+$conexao = conexaoBD();
 
 $sql = "SELECT * FROM usuario";
 $query = $conexao->prepare($sql);

@@ -24,7 +24,7 @@
 					<li><a href="principalTrein.php" style="color:white">Início</a></li>
 					<li><a href="#" style="color:white"></a></li>
 					<li><a href="#" style="color:white"></a></li>
-					<li><a href="index.php" style="color:white">Sair</a></li>
+					<li><a href="logout.php" style="color:white">Sair</a></li>
 				</ul>
 			</div>
 		</div>

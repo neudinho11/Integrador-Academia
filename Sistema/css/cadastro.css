@@ -35,7 +35,7 @@ label {
     border: 2px solid green;
 }
 
-.erro {
+.error {
     display: block;
     color: red;
 }
