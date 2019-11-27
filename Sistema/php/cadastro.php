@@ -68,10 +68,10 @@
 					<label>Tipo de conta : </label>
 					<div class="radio">
 						<label>
-							<input class="rad" type="radio" name="radTipoConta" value="usuario" required> Usuário
+							<input class="rad" type="radio" name="radTipoConta" value="usuario"> Usuário
 						</label>
 						<label>
-							<input class="rad" type="radio" name="radTipoConta" value="treinador" required> Treinador
+							<input class="rad" type="radio" name="radTipoConta" value="treinador"> Treinador
 						</label>
 					</div>
 				</div>

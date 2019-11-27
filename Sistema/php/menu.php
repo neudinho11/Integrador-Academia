@@ -21,7 +21,7 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="principalTrein.php" style="color:white">Início</a></li>
+					<li><a href="<?php echo "principalTrein.php?idT=$_GET[idT]"?>" style="color:white">Início</a></li>
 					<li><a href="#" style="color:white"></a></li>
 					<li><a href="#" style="color:white"></a></li>
 					<li><a href="logout.php" style="color:white">Sair</a></li>

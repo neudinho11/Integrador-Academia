@@ -67,7 +67,14 @@ $(function() {
                     required: "Informe o sexo"
                 },
                 radTipoConta: {
-                    required: "Informe o tipo de conta"
+                    required: "Informe o tipo de conta<br>"
+                }
+            },
+            errorPlacement: function(error, element) {
+                if (element.is(":radio")) {
+                    error.appendTo(element.parents('.radio'));
+                } else {
+                    error.insertAfter(element);
                 }
             }
         });

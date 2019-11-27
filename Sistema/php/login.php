@@ -27,7 +27,7 @@
                 $treinador = $treinadores[0];
                 session_start();
                 $_SESSION['logado'] = true;
-                header('Location: principalTrein.php?id=$treinador[id_treinador]');
+                header('Location: principalTrein.php?id=$treinador[id_treinador]'); //pode ser aki*************
             }
         }else{
             $user = $usuarios[0];

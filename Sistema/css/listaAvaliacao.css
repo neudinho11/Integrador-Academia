@@ -1,4 +1,9 @@
-.formAvaliacao {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.principal {
     margin-top: 5%;
     width: 60%;
 }
@@ -9,8 +14,4 @@
 
 label {
     font-weight: bold;
-}
-
-.error {
-    color: red;
 }

@@ -14,10 +14,13 @@
 
 	<?php
 		include "menu.php";
+
+		$idT = $_GET["idT"];
+		$idU = $_GET["idU"];
 	?>
 
 	<div class="container formAvaliacao">
-		<form id="form_Avaliac" action="" method="POST">
+		<form id="form_Avaliac" action="<?php echo "processarAvaliacao.php?idT=$idT&idU=$idU"?>" method="POST">
 			<legend class="positionElem">
 				<h2>AVALIAÇÃO</h2>
 			</legend>
@@ -34,7 +37,7 @@
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label for="txtPressao">Pressão Arterial: </label>
-					<input id="txtPressao" name="txtPressao" type="text" placeholder="Pressão" class="form-control input-md num" required="">
+					<input id="txtPressao" name="txtPressao" type="text" placeholder="Pressão" class="form-control input-md" required="">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="txtPeso">Peso: </label>
@@ -116,6 +119,7 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="../js/avaliacao.js"></script>
 </body>
 
