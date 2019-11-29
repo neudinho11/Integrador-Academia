@@ -1,18 +1,21 @@
 <?php
-require_once "functions.php";
+    session_start();
+    include "verificaLogin.php";
+    require_once "functions.php";
 ?>
 
 <?php
 
-$idT = $_GET["idT"];
 $idU = $_GET["idU"];
+$_SESSION["usuario"] = $idU;
 
 $conexao = conexaoBD();
 $sql = "SELECT u.nome AS usuario, u.matricula, t.nome AS treinador, tua.data_avaliacao, tua.id_avaliacao FROM trein_usua_aval AS tua
 INNER JOIN usuario AS u on tua.id_usuario = u.id_usuario
 INNER jOIN treinador AS t on tua.id_treinador = t.id_treinador
-WHERE tua.id_usuario = $idU";
+WHERE tua.id_usuario = :idU";
 $query = $conexao->prepare($sql);
+$query->bindParam(":idU", $idU);
 $query->execute();
 $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -42,9 +45,9 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
         </legend>
 
         <div class="row">
-        <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href='<?php echo "principalTrein.php?idT=$idT"?>'>Voltar</a></div>
+        <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalTrein.php">Voltar</a></div>
         <div class="form-group col-md-10"></div>
-        <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href='<?php echo "avaliacao.php?idT=$idT&idU=$idU"?>'>Nova Avaliação</a></div>
+        <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="avaliacao.php">Nova Avaliação</a></div>
         </div>
 
         <div id="listUser" class="row">
@@ -68,7 +71,7 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
                                     <td>$aval[treinador]</td>
                                     <td>$aval[data_avaliacao]</td>
                                     <td class='actions'>
-                                        <a class='btn btn-success btn-xs' href='visualizarAvaliacao.php?id=$aval[id_avaliacao]'>Visualizar</a>
+                                        <a class='btn btn-success btn-xs' href='visualizarAvaliacao.php?idA=$aval[id_avaliacao]'>Visualizar</a>
                                     </td>
                                 </tr>";
                         }

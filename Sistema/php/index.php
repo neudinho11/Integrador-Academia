@@ -31,9 +31,10 @@ require_once "functions.php";
 		<div class="container-login100" style="background-image: url('../images/img1.jpg');">
 			<div class="wrap-login100 p-t-135 p-b-60 divPrincipal">
 				<?php
-					if (isset($_GET["e"]) && $_GET["e"] == true){
-						echo "<div class='alert alert-danger' role='alert'><strong>Erro no Login</strong></div>";
+					if (isset($_SESSION["erro"])){
+						echo "<div class='alert alert-warning text-center' role='alert'><strong>Erro no Login</strong></div>";
 					}
+					unset($_SESSION["erro"]);
 				?>
 				<form method="post" action="login.php" class="login100-form validate-form p-l-10 p-r-10 p-t-10 p-b-10">
 					<div class="login100-form-avatar">

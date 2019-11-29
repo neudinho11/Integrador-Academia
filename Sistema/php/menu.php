@@ -1,3 +1,25 @@
+<?php
+session_start();
+require_once "functions.php";
+include "verificaLogin.php";
+
+$matricula = $_SESSION["matricula"];
+$conexao = conexaoBD();
+
+$sql = "SELECT id_treinador FROM treinador WHERE matricula = :matricula";
+$query = $conexao->prepare($sql);
+$query->bindParam(":matricula", $matricula);
+$resultado = $query->execute();
+$trein = $query->fetch(PDO::FETCH_ASSOC);
+
+if (empty($trein)) {
+	$tipo = 0; //usuario
+} else {
+	$tipo = 1; //treinador
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,7 +31,7 @@
 
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top"> 
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -21,10 +43,21 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<?php echo "principalTrein.php?idT=$_GET[idT]"?>" style="color:white">Início</a></li>
-					<li><a href="#" style="color:white"></a></li>
-					<li><a href="#" style="color:white"></a></li>
-					<li><a href="logout.php" style="color:white">Sair</a></li>
+					<?php //Usuario
+					if ($tipo == 0) { ?>
+						<li><a href="principalUser.php" style="color:white">Início</a></li>
+						<li><a href="#" style="color:white">Avaliações</a></li>
+						<li><a href="#" style="color:white">Treinos</a></li>
+						<li><a href="#" style="color:white">Anamnese</a></li>
+						<li><a href="logout.php" style="color:white">Sair</a></li>
+					<?php //Treinador
+					}
+					if ($tipo == 1) { ?>
+						<li><a href="principalTrein.php" style="color:white">Início</a></li>
+						<li><a href="#" style="color:white"></a></li>
+						<li><a href="#" style="color:white"></a></li>
+						<li><a href="logout.php" style="color:white">Sair</a></li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>

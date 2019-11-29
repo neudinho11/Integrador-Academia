@@ -1,10 +1,13 @@
 <?php
+    session_start();
+    include "verificaLogin.php";
     require_once "functions.php";
 ?>
 
 <?php
-    $idT = $_GET["idT"];
-    $idU = $_GET["idU"];
+    $idU = $_SESSION["usuario"];
+    $idT = $_SESSION["matricula"];
+
     $data = $_POST["txtDataAval"];
     $pressao = $_POST["txtPressao"];
     $peso = floatval($_POST["txtPeso"]);
@@ -25,6 +28,14 @@
 
     $conexao = conexaoBD();
 
+    $sql = "SELECT id_treinador FROM treinador WHERE matricula = :matricula";
+    $query = $conexao->prepare($sql);
+    $query->bindParam(":matricula", $idT);
+    $resultado = $query->execute();
+    $treinador = $query->fetch(PDO::FETCH_ASSOC);
+    
+    $idT= $treinador["id_treinador"];
+
     $sql = "INSERT INTO avaliacao (pressao_arterial, peso, altura, imc) VALUES (:pressao_arterial, :peso, :altura, :imc)";
     $query = $conexao->prepare($sql);
     $query->bindParam(":pressao_arterial", $pressao);
@@ -42,10 +53,6 @@
     $query->bindParam(":id_usuario", $idU);
     $query->bindParam(":id_avaliacao", $idA);
     $resultado = $query->execute();
-    echo "data: " . $data . "<br/>";
-    echo "idT: " . $idT . "<br/>";
-    echo "idU: " . $idU . "<br/>";
-    echo "idA: " . $idA . "<br/>";
 
     $sql = "INSERT INTO medidas (pescoco, biceps_direito, biceps_esquerdo, antebraco_direito, antebraco_esquerdo, peito, cintura, quadris, coxa_direita, Coxa_esquerda, Panturrilha_direita, Panturrilha_esquerda, id_avaliacao) 
     VALUES (:pescoco, :biceps_direito, :biceps_esquerdo, :antebraco_direito, :antebraco_esquerdo, :peito, :cintura, :quadris, :coxa_direita, :Coxa_esquerda, :Panturrilha_direita, :Panturrilha_esquerda, :id_avaliacao)";
@@ -62,11 +69,11 @@
     $query->bindParam(":Coxa_esquerda", $coxaE);
     $query->bindParam(":Panturrilha_direita", $pantD);
     $query->bindParam(":Panturrilha_esquerda", $pantE);
-    $query->bindParam(":id_avaliacao", $IdA);
+    $query->bindParam(":id_avaliacao", $idA);
     $resultado = $query->execute();
     
 
-    //header("Location: visualizarAvaliacao.php?idT=$idT&idU=$idU");
+    header("Location: visualizarAvaliacao.php?idA=$idA");
 
     
 ?>

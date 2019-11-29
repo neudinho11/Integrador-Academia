@@ -4,7 +4,7 @@ require_once "functions.php";
 
 <?php
 
-$idA = $_GET["id"];
+$idTr = $_GET["idTr"];
 
 $conexao = conexaoBD();
 $sql = "SELECT * FROM avaliacao WHERE id_avaliacao = :id_avaliacao";

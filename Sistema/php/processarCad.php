@@ -1,5 +1,6 @@
 <?php
     require_once "functions.php";
+    include "verificaLogin.php";
 ?>
 
 <?php
@@ -25,7 +26,8 @@
         $query->bindParam(":sexo", $sexo);
         $query->bindParam(":tipo_conta", $tipoConta);
         $resultado = $query->execute();
-        header("Location: index.php?msg=cadastrado");
+        $_SESSION['cadastro'] = true;
+        header("Location: index.php");
     }else{
         $sql = "INSERT INTO treinador (nome, matricula, email, senha, data_nascimento, sexo, tipo_conta) VALUES (:nome, :matricula, :email, :senha, :data_nascimento, :sexo, :tipo_conta)";
         $query = $conexao->prepare($sql);
@@ -37,7 +39,8 @@
         $query->bindParam(":sexo", $sexo);
         $query->bindParam(":tipo_conta", $tipoConta);
         $resultado = $query->execute();
-        header("Location: index.php?msg=cadastrado");
+        $_SESSION['cadastro'] = true;
+        header("Location: index.php");
     }
     
 ?>

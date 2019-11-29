@@ -1,0 +1,16 @@
+.formTrein {
+    margin-top: 5%;
+    width: 60%;
+}
+
+.positionElem {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+}

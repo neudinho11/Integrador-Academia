@@ -1,3 +1,7 @@
+<?php
+	include "verificaLogin.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,13 +18,10 @@
 
 	<?php
 		include "menu.php";
-
-		$idT = $_GET["idT"];
-		$idU = $_GET["idU"];
 	?>
 
 	<div class="container formAvaliacao">
-		<form id="form_Avaliac" action="<?php echo "processarAvaliacao.php?idT=$idT&idU=$idU"?>" method="POST">
+		<form id="form_Avaliac" action="processarAvaliacao.php" method="POST">
 			<legend class="positionElem">
 				<h2>AVALIAÇÃO</h2>
 			</legend>

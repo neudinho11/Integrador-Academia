@@ -1,28 +1,31 @@
 <?php
-require_once "functions.php";
+    session_start();
+    include "verificaLogin.php";
+    require_once "functions.php";
 ?>
 
 <?php
 
-$idT = $_GET["idT"];
 $idU = $_GET["idU"];
+$_SESSION["usuario"] = $idU;
 
 $conexao = conexaoBD();
-$sql = "SELECT u.nome AS usuario, u.matricula, t.nome AS treinador, tua.data_avaliacao, tua.id_avaliacao FROM trein_usua_aval AS tua
-INNER JOIN usuario AS u on tua.id_usuario = u.id_usuario
-INNER jOIN treinador AS t on tua.id_treinador = t.id_treinador
-WHERE tua.id_usuario = $idU";
+$sql = "SELECT tut.data_criacao AS dc, tut.data_validade AS dv, u.nome AS usuario, u.matricula AS mat, t.nome AS treinador, tut.id_treino AS idTr 
+FROM trein_usua_treino AS tut
+INNER JOIN usuario AS u on tut.id_usuario = u.id_usuario
+INNER jOIN treinador AS t on tut.id_treinador = t.id_treinador
+WHERE tut.id_usuario = :idU";
 $query = $conexao->prepare($sql);
+$query->bindParam(':idU', $idU);
 $query->execute();
-$avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
+$treinos = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <title>Avaliações
-    </title>
+    <title>Treinos</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -38,13 +41,13 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="container principal">
         <legend class="positionElem">
-            <h2>AVALIAÇÕES</h2>
+            <h2>TREINOS</h2>
         </legend>
 
         <div class="row">
-        <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href='<?php echo "principalTrein.php?idT=$idT"?>'>Voltar</a></div>
+        <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalTrein.php">Voltar</a></div>
         <div class="form-group col-md-10"></div>
-        <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href='<?php echo "avaliacao.php?idT=$idT&idU=$idU"?>'>Nova Avaliação</a></div>
+        <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="treino.php">Novo Treino</a></div>
         </div>
 
         <div id="listUser" class="row">
@@ -55,20 +58,22 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
                             <th>USUARIO</th>
                             <th>MATRICULA</th>
                             <th>TREINADOR</th>
-                            <th>DATA AVALIAÇÃO</th>
+                            <th>DATA CRIAÇÃO</th>
+                            <th>DATA VALIDADE</th>
                             <th>AÇÕES</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($avaliacoes as $aval) {
+                        foreach ($treinos as $treino) {
                             echo "<tr>
-                                    <td>$aval[usuario]</td>
-                                    <td>$aval[matricula]</td>
-                                    <td>$aval[treinador]</td>
-                                    <td>$aval[data_avaliacao]</td>
+                                    <td>$treino[usuario]</td>
+                                    <td>$treino[mat]</td>
+                                    <td>$treino[treinador]</td>
+                                    <td>$treino[dc]</td>
+                                    <td>$treino[dv]</td>
                                     <td class='actions'>
-                                        <a class='btn btn-success btn-xs' href='visualizarAvaliacao.php?id=$aval[id_avaliacao]'>Visualizar</a>
+                                        <a class='btn btn-success btn-xs' href='visualizarTreino.php?idTr=$treino[idTr]'>Visualizar</a>
                                     </td>
                                 </tr>";
                         }

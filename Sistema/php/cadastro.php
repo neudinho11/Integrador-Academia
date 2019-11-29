@@ -13,6 +13,7 @@
 <body>
 
 	<div class="container formCadastro">
+
 		<form id="form_cadastro" action="processarCad.php" method="POST">
 			<legend class="positionElem">
 				<h2>CADASTRO</h2>
@@ -82,6 +83,9 @@
 				<button id="btnsalvar" name="btnsalvar" class="btn btn-success">Salvar</button>
 			</div>
 		</form>
+		<div class="row">
+			<div class="form-group col-md-1"><a class='btn btn-warning' href="index.php">Voltar</a></div>
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

@@ -39,6 +39,9 @@
 				<button id="btnsalvarS" name="btnsalvarS" class="btn btn-success">Enviar</button>
 			</div>
 		</form>
+		<div class="row">
+			<div class="form-group col-md-1"><a class='btn btn-warning' href="index.php">Voltar</a></div>
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

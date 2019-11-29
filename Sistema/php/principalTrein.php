@@ -1,10 +1,11 @@
 <?php
 require_once "functions.php";
+
+include "verificaLogin.php";
 ?>
 
 <?php
 
-$idT = $_GET["id"];
 class Usuario
 {
     public $id_usuario;
@@ -29,8 +30,7 @@ $usuarios = $query->fetchAll(PDO::FETCH_CLASS, "Usuario");
 <html lang="pt-br">
 
 <head>
-    <title>Treinador
-    </title>
+    <title>Treinador</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -74,8 +74,8 @@ $usuarios = $query->fetchAll(PDO::FETCH_CLASS, "Usuario");
                                         <td>$user->data_nascimento</td>
                                         <td>$user->sexo</td>
                                         <td class='actions'>
-                                            <a class='btn btn-success btn-xs' href='listaAvaliacao.php?idT=$idT&idU=$user->id_usuario'>Avaliação</a>
-                                            <a class='btn btn-success btn-xs' href='listaTreino.php?idT=$idT&idU=$user->id_usuario'>Treino</a>
+                                            <a class='btn btn-success btn-xs' href='listaAvaliacao.php?idU=$user->id_usuario'>Avaliação</a>
+                                            <a class='btn btn-success btn-xs' href='listaTreino.php?idU=$user->id_usuario'>Treino</a>
                                         </td>
                                     </tr>";
                         }
