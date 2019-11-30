@@ -15,13 +15,16 @@
     $obs = $_POST["txtObs"];
     $ttlExerc = $_POST["ttlExerc"];
 
-    for($i = 0; $i < $ttlExerc; $i++){
+    for($i = 0; $i <= $ttlExerc; $i++){
         $nome[$i] = $_POST["nome$i"];
         $parte[$i] = $_POST["parte$i"];
         $series[$i] = $_POST["series$i"];
         $repet[$i] = $_POST["repet$i"];
         $dia[$i] = $_POST["dia$i"];
+        
     }
+    echo "<br><br><br><br>". $_POST["ttlExerc"];
+    
 
     $conexao = conexaoBD();
 
@@ -51,15 +54,15 @@
     $query->bindParam(":id_treino", $idTr);
     $resultado = $query->execute();
 
-    for($i = 0; $i < $ttlExerc; $i++){
-        $sql = "INSERT INTO exercicio (parte_corpo, nome_exercicio, nome_exercicio, repeticoes, repeticoes) 
-        VALUES (:parte_corpo, :nome_exercicio, :nome_exercicio, :repeticoes, :repeticoes)";
+    for($i = 0; $i <= $ttlExerc; $i++){
+        $sql = "INSERT INTO exercicio (parte_corpo, nome_exercicio, series, repeticoes, dia_semana) 
+        VALUES (:parte_corpo, :nome_exercicio, :series, :repeticoes, :dia_semana)";
         $query = $conexao->prepare($sql);
         $query->bindParam(":parte_corpo", $nome[$i]);
         $query->bindParam(":nome_exercicio", $parte[$i]);
-        $query->bindParam(":nome_exercicio", $series[$i]);
+        $query->bindParam(":series", $series[$i]);
         $query->bindParam(":repeticoes", $repet[$i]);
-        $query->bindParam(":repeticoes", $dia[$i]);
+        $query->bindParam(":dia_semana", $dia[$i]);
         $resultado = $query->execute();
         $idEx = $conexao->lastInsertId();
 
@@ -72,6 +75,6 @@
     }
     
 
-    header("Location: visualizarTreino.php?idTr=$idTr");
+    //header("Location: visualizarTreino.php?idTr=$idTr");
 
 ?>
