@@ -29,9 +29,9 @@ $idU = $_SESSION["usuario"];
 				<h2>AVALIAÇÃO</h2>
 			</legend>
 			<div class="row">
-			<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "listaAvaliacao.php?idU=$idU" ?>">Voltar</a></div>
-			<div class="form-group col-md-11"></div>
-		</div>
+				<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "listaAvaliacao.php?idU=$idU" ?>">Voltar</a></div>
+				<div class="form-group col-md-11"></div>
+			</div>
 
 			<div class="row">
 				<div class="form-group col-md-4"></div>

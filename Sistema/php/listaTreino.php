@@ -1,15 +1,33 @@
 <?php
-    session_start();
-    include "verificaLogin.php";
-    require_once "functions.php";
+session_start();
+include "verificaLogin.php";
+require_once "functions.php";
 ?>
 
 <?php
 
-$idU = $_GET["idU"];
-$_SESSION["usuario"] = $idU;
+$tipo = $_SESSION['tipoLogin'];
 
 $conexao = conexaoBD();
+
+if ($tipo == "t") {
+    $tipo = 0; //treinador
+
+    $idU = $_GET["idU"];
+    $_SESSION["usuario"] = $idU;
+} else {
+    $tipo = 1; //usuario
+
+    $sql = "SELECT id_usuario FROM usuario WHERE matricula = :matricula";
+    $query = $conexao->prepare($sql);
+    $query->bindParam(":matricula", $_SESSION['matricula']);
+    $query->execute();
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+
+    $_SESSION["usuario"] = $user['id_usuario'];
+    $idU = $_SESSION["usuario"];
+}
+
 $sql = "SELECT tut.data_criacao AS dc, tut.data_validade AS dv, u.nome AS usuario, u.matricula AS mat, t.nome AS treinador, tut.id_treino AS idTr 
 FROM trein_usua_treino AS tut
 INNER JOIN usuario AS u on tut.id_usuario = u.id_usuario
@@ -45,9 +63,17 @@ $treinos = $query->fetchAll(PDO::FETCH_ASSOC);
         </legend>
 
         <div class="row">
-        <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalTrein.php">Voltar</a></div>
-        <div class="form-group col-md-10"></div>
-        <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="treino.php">Novo Treino</a></div>
+            <?php if ($tipo == 1) { //treinador 
+                ?>
+                <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalTrein.php">Voltar</a></div>
+                <div class="form-group col-md-10"></div>
+                <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="treino.php">Novo Treino</a></div>
+            <?php } else { //usuario 
+                ?>
+                <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalUser.php">Voltar</a></div>
+                <div class="form-group col-md-10"></div>
+                <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="#">Solicitar Treino</a></div>
+            <?php } ?>
         </div>
 
         <div id="listUser" class="row">
@@ -83,10 +109,10 @@ $treinos = $query->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="../js/listaAvaliacao.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../js/listaAvaliacao.js"></script>
 </body>
 
 </html>

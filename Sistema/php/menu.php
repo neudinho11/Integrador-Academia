@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+	session_start();
+}
 require_once "functions.php";
 include "verificaLogin.php";
 
@@ -46,16 +48,15 @@ if (empty($trein)) {
 					<?php //Usuario
 					if ($tipo == 0) { ?>
 						<li><a href="principalUser.php" style="color:white">Início</a></li>
-						<li><a href="#" style="color:white">Avaliações</a></li>
-						<li><a href="#" style="color:white">Treinos</a></li>
+						<li><a href="listaAvaliacao.php" style="color:white">Avaliações</a></li>
+						<li><a href="listaTreino.php" style="color:white">Treinos</a></li>
 						<li><a href="anamnese.php" style="color:white">Anamnese</a></li>
 						<li><a href="logout.php" style="color:white">Sair</a></li>
 					<?php //Treinador
 					}
 					if ($tipo == 1) { ?>
 						<li><a href="principalTrein.php" style="color:white">Início</a></li>
-						<li><a href="#" style="color:white"></a></li>
-						<li><a href="#" style="color:white"></a></li>
+						<li><a href="principalTrein.php" style="color:white">Usuarios</a></li>
 						<li><a href="logout.php" style="color:white">Sair</a></li>
 					<?php } ?>
 				</ul>

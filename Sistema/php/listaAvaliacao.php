@@ -6,10 +6,28 @@ require_once "functions.php";
 
 <?php
 
-$idU = $_GET["idU"];
-$_SESSION["usuario"] = $idU;
+$tipo = $_SESSION['tipoLogin'];
 
 $conexao = conexaoBD();
+
+if ($tipo == "t") {
+    $tipo = 0; //treinador
+
+    $idU = $_GET["idU"];
+    $_SESSION["usuario"] = $idU;
+} else {
+    $tipo = 1; //usuario
+
+    $sql = "SELECT id_usuario FROM usuario WHERE matricula = :matricula";
+    $query = $conexao->prepare($sql);
+    $query->bindParam(":matricula", $_SESSION['matricula']);
+    $query->execute();
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+
+    $_SESSION["usuario"] = $user['id_usuario'];
+    $idU = $_SESSION["usuario"];
+}
+
 $sql = "SELECT u.nome AS usuario, u.matricula, t.nome AS treinador, tua.data_avaliacao, tua.id_avaliacao FROM trein_usua_aval AS tua
 INNER JOIN usuario AS u on tua.id_usuario = u.id_usuario
 INNER jOIN treinador AS t on tua.id_treinador = t.id_treinador
@@ -18,6 +36,8 @@ $query = $conexao->prepare($sql);
 $query->bindParam(":idU", $idU);
 $query->execute();
 $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -45,9 +65,17 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
         </legend>
 
         <div class="row">
-            <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalTrein.php">Voltar</a></div>
-            <div class="form-group col-md-10"></div>
-            <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="avaliacao.php">Nova Avaliação</a></div>
+            <?php if ($tipo == 1) { //treinador 
+                ?>
+                <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalTrein.php">Voltar</a></div>
+                <div class="form-group col-md-10"></div>
+                <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="avaliacao.php">Nova Avaliação</a></div>
+            <?php } else { //usuario 
+                ?>
+                <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalUser.php">Voltar</a></div>
+                <div class="form-group col-md-10"></div>
+                <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="#">Solicitar Avaliação</a></div>
+            <?php } ?>
         </div>
 
         <div id="listUser" class="row">

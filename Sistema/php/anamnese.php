@@ -1,5 +1,28 @@
 <?php
-	include "verificaLogin.php";
+session_start();
+include "verificaLogin.php";
+require_once "functions.php";
+?>
+
+<?php
+
+$conexao = conexaoBD();
+$sql = "SELECT id_usuario FROM usuario WHERE matricula = :matricula";
+$query = $conexao->prepare($sql);
+$query->bindParam(":matricula", $_SESSION['matricula']);
+$query->execute();
+$user = $query->fetch(PDO::FETCH_ASSOC);
+
+$sql = "SELECT id_usuario FROM anamnese WHERE id_usuario = :id_usuario";
+$query = $conexao->prepare($sql);
+$query->bindParam(":id_usuario", $user['id_usuario']);
+$query->execute();
+$user = $query->fetch(PDO::FETCH_ASSOC);
+
+if (!empty($user)) {
+	header("Location: visualizarAnamnese.php?idU=$user[id_usuario]");
+}
+
 ?>
 
 <!DOCTYPE html>

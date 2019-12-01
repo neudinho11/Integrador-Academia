@@ -36,12 +36,12 @@ $pressao = isset($_POST["pressao"]) ? $_POST["pressao"] : "";
 $conexao = conexaoBD();
 
 $sql = "SELECT id_usuario FROM usuario WHERE matricula = :matricula";
-    $query = $conexao->prepare($sql);
-    $query->bindParam(":matricula", $idU);
-    $resultado = $query->execute();
-    $treinador = $query->fetch(PDO::FETCH_ASSOC);
-    
-    $idU= $treinador["id_usuario"];
+$query = $conexao->prepare($sql);
+$query->bindParam(":matricula", $idU);
+$resultado = $query->execute();
+$treinador = $query->fetch(PDO::FETCH_ASSOC);
+
+$idU = $treinador["id_usuario"];
 
 $sql = "INSERT INTO anamnese (objetivo, pratica_atv_fis, retricoes, cirurgia, alergia, problema_osteomuscular, cardiopatia, medicamento, 
     suplemento, fumar, diabetico, diabetico_familia, tontura_desmaio, dores_peito, pressao_arterial, quais_atv_fis, frequencia_smnl_atv_fis, 

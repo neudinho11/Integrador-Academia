@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "functions.php";
 ?>
 
@@ -6,6 +7,7 @@ require_once "functions.php";
 
 $idU = $_GET["idU"];
 $_SESSION["usuario"] = $idU;
+$tipo = $_SESSION['tipoLogin'];
 
 $conexao = conexaoBD();
 $sql = "SELECT * FROM anamnese WHERE id_usuario = :id_usuario";
@@ -47,7 +49,13 @@ function valid($val)
 			<h2>VISUALIZAR ANAMNESE</h2>
 		</legend>
 		<div class="row">
-			<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "listaAvaliacao.php?idU=$idU" ?>">Voltar</a></div>
+			<?php if ($tipo == "t") { //treinador 
+				?>
+				<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "principalUser.php?idU=$idU" ?>">Voltar</a></div>
+			<?php } else { //usuario 
+				?>
+				<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "principalTrein.php?idU=$idU" ?>">Voltar</a></div>
+			<?php } ?>
 			<div class="form-group col-md-11"></div>
 		</div>
 

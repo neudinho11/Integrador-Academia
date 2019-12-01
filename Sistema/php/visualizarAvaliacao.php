@@ -52,7 +52,7 @@ $medidas = $query->fetch(PDO::FETCH_ASSOC);
 			<h2>VISUALIZAR AVALIAÇÃO</h2>
 		</legend>
 		<div class="row">
-			<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "listaAvaliacao.php?idU=$idU"?>">Voltar</a></div>
+			<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "listaAvaliacao.php?idU=$idU" ?>">Voltar</a></div>
 			<div class="form-group col-md-11"></div>
 		</div>
 
