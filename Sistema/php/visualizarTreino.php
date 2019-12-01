@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once "functions.php";
+$idU = $_SESSION["usuario"];
 ?>
 
 <?php
@@ -7,23 +9,26 @@ require_once "functions.php";
 $idTr = $_GET["idTr"];
 
 $conexao = conexaoBD();
-$sql = "SELECT * FROM avaliacao WHERE id_avaliacao = :id_avaliacao";
+$sql = "SELECT * FROM treino WHERE id_treino = :id_treino";
 $query = $conexao->prepare($sql);
-$query->bindParam(":id_avaliacao", $idA);
+$query->bindParam(":id_treino", $idTr);
 $query->execute();
-$avaliacao = $query->fetch(PDO::FETCH_ASSOC);
+$treino = $query->fetch(PDO::FETCH_ASSOC);
 
-$sql = "SELECT * FROM trein_usua_aval WHERE id_avaliacao = :id_avaliacao";
+$sql = "SELECT * FROM trein_usua_treino WHERE id_treino = :id_treino";
 $query = $conexao->prepare($sql);
-$query->bindParam(":id_avaliacao", $idA);
+$query->bindParam(":id_treino", $idTr);
 $query->execute();
-$tua = $query->fetch(PDO::FETCH_ASSOC);
+$tut = $query->fetch(PDO::FETCH_ASSOC);
 
-$sql = "SELECT * FROM medidas WHERE id_avaliacao = :id_avaliacao";
+$sql = "SELECT parte_corpo, nome_exercicio, series, repeticoes, dia_semana FROM exercicio AS ex 
+INNER JOIN treino_exercicio AS te ON ex.id_exercicio = te.id_exercicio
+INNER JOIN treino AS tr ON te.id_treino = tr.id_treino
+WHERE tr.id_treino = :id_treino";
 $query = $conexao->prepare($sql);
-$query->bindParam(":id_avaliacao", $idA);
+$query->bindParam(":id_treino", $idTr);
 $query->execute();
-$medidas = $query->fetch(PDO::FETCH_ASSOC);
+$exercicio = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -31,7 +36,7 @@ $medidas = $query->fetch(PDO::FETCH_ASSOC);
 <html lang="pt-br">
 
 <head>
-	<title>Visualizar Avaliação</title>
+	<title>Visualizar Treino</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -47,96 +52,54 @@ $medidas = $query->fetch(PDO::FETCH_ASSOC);
 
 	<div class="container principal">
 		<legend class="positionElem">
-			<h2>VISUALIZAR AVALIAÇÃO</h2>
+			<h2>VISUALIZAR TREINO</h2>
+		</legend>
+		<div class="row">
+			<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "listaTreino.php?idU=$idU" ?>">Voltar</a></div>
+			<div class="form-group col-md-11"></div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-md-4">
+				<p><strong>Data Criação : </strong></p>
+				<p><input id="txtDataCri" name="txtDataCri" type="date" value="<?php echo $tut['data_criacao']; ?>" class="form-control input-md" readonly>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Data Validade : </strong></p>
+				<p><input id="txtDataV" name="txtDataVali" type="date" value="<?php echo $tut['data_validade']; ?>" class="form-control input-md" readonly></p>
+			</div>
+			<div class="form-group col-md-4">
+				<p><strong>Dias de Treino : </strong></p>
+				<p><input id="txtDiasTr" name="txtDiasTr" type="text" value="<?php echo $treino['dias_treino']; ?>" class="form-control input-md" readonly></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-md-6">
+				<p><strong>Objetivo : </strong></p>
+				<p><textarea id="txtObj" name="txtObj" class="form-control" readonly><?php echo $treino['objetivo']; ?></textarea></p>
+			</div>
+			<div class="form-group col-md-6">
+				<p><strong>Observações : </strong></p>
+				<p><textarea id="txtObs" name="txtObs" type="text" class="form-control" readonly><?php echo $treino['observacoes']; ?></textarea></p>
+			</div>
+		</div>
+		<hr>
+
+		<legend class="positionElem">
+			<h4><strong>EXERCICIOS</strong></h4>
 		</legend>
 
-		<div class="row">
-			<div class="form-group col-md-4"></div>
-			<div class="form-group col-md-4">
-				<p><strong>Data Avaliação : </strong></p>
-				<p><input id="txtDataV" type="text" value="<?php echo $tua['data_avaliacao']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-4"></div>
-		</div>
+		<?php
+		foreach ($exercicio as $exerc) {
+			echo "<hr><div class='row'><div class='form-group col-md-3'><label>Nome do exercicio: </label><input type='text' value='$exerc[nome_exercicio]' class='form-control input-md' readonly>
+				</div><div class='form-group col-md-2'><label>Parte do corpo: </label><input type='text' value='$exerc[parte_corpo]' class='form-control input-md' readonly></div>
+				<div class='form-group col-md-2'><label>Series: </label><input type='number' value='$exerc[series]' class='form-control input-md' readonly></div>
+				<div class='form-group col-md-2'><label>Repetições: </label><input type='number' value='$exerc[repeticoes]' class='form-control input-md' readonly></div>
+				<div class='form-group col-md-3'><label>Dia da semana: </label><input type='text' value='$exerc[dia_semana]' class='form-control input-md' readonly></div></div>";
+		}
+		?>
 
-		<div class="row">
-			<div class="form-group col-md-3">
-				<p><strong>Pressão Arterial : </strong></p>
-				<p><input id="txtPressaoV" type="text" value="<?php echo $avaliacao['pressao_arterial']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-3">
-				<p><strong>Peso : </strong></p>
-				<p><input id="txtPesoV" type="text" value="<?php echo $avaliacao['peso']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-3">
-				<p><strong>Altura : </strong></p>
-				<p><input id="txtAlturaV" type="text" value="<?php echo $avaliacao['altura']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-3">
-				<p><strong>IMC : </strong></p>
-				<p><input id="txtImcV" type="text" value="<?php echo $avaliacao['imc']; ?>" readonly></p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="form-group col-md-4">
-				<p><strong>Pescoço : </strong></p>
-				<p><input id="txtPescocoV" type="text" value="<?php echo $medidas['pescoco']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-4">
-				<p><strong>Biceps Direito : </strong></p>
-				<p><input id="txtBicepsDV" type="text" value="<?php echo $medidas['biceps_direito']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-4">
-				<p><strong>Biceps Esquerdo : </strong></p>
-				<p><input id="txtBicepsEV" type="text" value="<?php echo $medidas['biceps_esquerdo']; ?>" readonly></p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="form-group col-md-4">
-				<p><strong>Peito : </strong></p>
-				<p><input id="txtPeitoV" type="text" value="<?php echo $medidas['peito']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-4">
-				<p><strong>Antebraço Direito : </strong></p>
-				<p><input id="txtAntDV" type="text" value="<?php echo $medidas['antebraco_direito']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-4">
-				<p><strong>Antebraço Esquerdo : </strong></p>
-				<p><input id="txtAntEV" type="text" value="<?php echo $medidas['antebraco_esquerdo']; ?>" readonly></p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="form-group col-md-4">
-				<p><strong>Cintura : </strong></p>
-				<p><input id="txtCinturaV" type="text" value="<?php echo $medidas['cintura']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-4">
-				<p><strong>Coxa Direito : </strong></p>
-				<p><input id="txtCoxaDV" type="text" value="<?php echo $medidas['coxa_direita']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-4">
-				<p><strong>Coxa Esquerda : </strong></p>
-				<p><input id="txtCoxaEV" type="text" value="<?php echo $medidas['coxa_direita']; ?>" readonly></p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="form-group col-md-4">
-				<p><strong>Quadris : </strong></p>
-				<p><input id="txtQuadrisV" type="text" value="<?php echo $medidas['quadris']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-4">
-				<p><strong>Panturrilha Direito : </strong></p>
-				<p><input id="txtPantDV" type="text" value="<?php echo $medidas['panturrilha_direito']; ?>" readonly></p>
-			</div>
-			<div class="form-group col-md-4">
-				<p><strong>Panturrilha Esquerda : </strong></p>
-				<p><input id="txtPantEV" type="text" value="<?php echo $medidas['panturrilha_esquerdo']; ?>" readonly></p>
-			</div>
-		</div>
 		<hr>
 	</div>
 

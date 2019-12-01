@@ -1,5 +1,7 @@
 <?php
-	include "verificaLogin.php";
+session_start();
+include "verificaLogin.php";
+$idU = $_SESSION["usuario"];
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,7 @@
 <body>
 
 	<?php
-		include "menu.php";
+	include "menu.php";
 	?>
 
 	<div class="container formTrein">
@@ -25,20 +27,24 @@
 			<legend class="positionElem">
 				<h2>TREINO</h2>
 			</legend>
+			<div class="row">
+				<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "listaTreino.php?idU=$idU" ?>">Voltar</a></div>
+				<div class="form-group col-md-11"></div>
+			</div>
 
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label for="txtDataCri">Data Criação: </label>
 					<input id="txtDataCri" name="txtDataCri" type="date" placeholder="Data Criação" class="form-control input-md" required="">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="txtDataVali">Data Validade: </label>
-					<input id="txtDataVali" name="txtDataVali" type="date" placeholder="Data Validade" class="form-control input-md" required="">
-                </div>
+				</div>
 				<div class="form-group col-md-4">
-                    <label for="txtDiasTr">Dias de Treino: </label>
+					<label for="txtDataVali">Data Validade: </label>
+					<input id="txtDataVali" name="txtDataVali" type="date" placeholder="Data Validade" class="form-control input-md" required="">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="txtDiasTr">Dias de Treino: </label>
 					<input id="txtDiasTr" name="txtDiasTr" type="text" placeholder="Dias de treino" class="form-control input-md" required="">
-                </div>
+				</div>
 			</div>
 
 			<div class="row">
@@ -50,12 +56,13 @@
 					<label for="txtObs">Observações: </label>
 					<textarea id="txtObs" name="txtObs" type="text" placeholder="Observações" class="form-control" required=""></textarea>
 				</div>
-			</div><hr>
+			</div>
+			<hr>
 
 			<div class="row" id="divBtn">
 				<div class="form-group col-md-11"></div>
 				<div class="form-group col-md-1">
-                    <p class='btn btn-primary' id="btnExerc" name="btnExerc">Exercicio</p>
+					<p class='btn btn-primary' id="btnExerc" name="btnExerc">Exercicio</p>
 				</div>
 			</div>
 			<input type="hidden" id="ttlExerc" name="ttlExerc" value="">

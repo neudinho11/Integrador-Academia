@@ -76,6 +76,7 @@ $usuarios = $query->fetchAll(PDO::FETCH_CLASS, "Usuario");
                                         <td class='actions'>
                                             <a class='btn btn-success btn-xs' href='listaAvaliacao.php?idU=$user->id_usuario'>Avaliação</a>
                                             <a class='btn btn-success btn-xs' href='listaTreino.php?idU=$user->id_usuario'>Treino</a>
+                                            <a class='btn btn-success btn-xs' href='visualizarAnamnese.php?idU=$user->id_usuario'>Anamnese</a>
                                         </td>
                                     </tr>";
                         }

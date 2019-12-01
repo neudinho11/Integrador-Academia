@@ -75,6 +75,6 @@
     }
     
 
-    //header("Location: visualizarTreino.php?idTr=$idTr");
+    header("Location: visualizarTreino.php?idTr=$idTr");
 
 ?>

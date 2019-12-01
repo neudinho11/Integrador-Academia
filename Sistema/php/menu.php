@@ -48,7 +48,7 @@ if (empty($trein)) {
 						<li><a href="principalUser.php" style="color:white">Início</a></li>
 						<li><a href="#" style="color:white">Avaliações</a></li>
 						<li><a href="#" style="color:white">Treinos</a></li>
-						<li><a href="#" style="color:white">Anamnese</a></li>
+						<li><a href="anamnese.php" style="color:white">Anamnese</a></li>
 						<li><a href="logout.php" style="color:white">Sair</a></li>
 					<?php //Treinador
 					}

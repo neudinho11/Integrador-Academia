@@ -1,3 +1,7 @@
+<?php
+	include "verificaLogin.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +21,7 @@
 	?>
 
 	<div class="container formAnamnese">
-		<form id="form_Anam" action="" method="POST">
+		<form id="form_Anam" action="processarAnamnese.php" method="POST">
 			<legend class="positionElem">
 				<h2>ANAMNESE</h2>
 			</legend>
@@ -59,8 +63,8 @@
 						</label>
 					</div>
 					<div id="divRegular" class="wrap-input100 m-b-10 txtInput altDisplay">
-						<input id="txtregularmente" name="txtregularmente" type="text" placeholder="Qual(ais)?" class="form-control input-md" required="">
-						<input id="txtregularmenteF" name="txtregularmenteF" type="text" placeholder="Qual é a frequência semanal?" class="form-control input-md" required="">
+						<input id="txtregularmente" name="txtregularmente" type="text" placeholder="Qual(ais)?" class="form-control input-md">
+						<input id="txtregularmenteF" name="txtregularmenteF" type="text" placeholder="Qual é a frequência semanal?" class="form-control input-md">
 					</div>
 				</div>
 				<div class="form-group col-md-6">
@@ -74,7 +78,7 @@
 						</label>
 					</div>
 					<div id="divRestricao" class="wrap-input100 m-b-10 altDisplay">
-						<input id="txtrestricao" name="txtrestricao" type="text" placeholder="Qual?" class="form-control input-md" required="">
+						<input id="txtrestricao" name="txtrestricao" type="text" placeholder="Qual?" class="form-control input-md">
 					</div>
 				</div>
 			</div>
@@ -92,7 +96,7 @@
 						</label>
 					</div>
 					<div id="divCirungia" class="wrap-input100 m-b-10 altDisplay">
-						<input id="txtcirurgia" name="txtcirurgia" type="text" placeholder="Especifique?" class="form-control input-md" required="">
+						<input id="txtcirurgia" name="txtcirurgia" type="text" placeholder="Especifique?" class="form-control input-md">
 					</div>
 				</div>
 				<div class="form-group col-md-6">
@@ -106,7 +110,7 @@
 						</label>
 					</div>
 					<div id="divAlergia" class="wrap-input100 m-b-10 altDisplay">
-						<input id="txtalergia" name="txtalergia" type="text" placeholder="Especifique?" class="form-control input-md" required="">
+						<input id="txtalergia" name="txtalergia" type="text" placeholder="Especifique?" class="form-control input-md">
 					</div>
 				</div>
 			</div>
@@ -124,7 +128,7 @@
 						</label>
 					</div>
 					<div id="divOsteo" class="wrap-input100 m-b-10 altDisplay">
-						<input id="txtosteomuscular" name="txtosteomuscular" type="text" placeholder="Especifique?" class="form-control input-md" required="">
+						<input id="txtosteomuscular" name="txtosteomuscular" type="text" placeholder="Especifique?" class="form-control input-md">
 					</div>
 				</div>
 				<div class="form-group col-md-6">
@@ -138,7 +142,7 @@
 						</label>
 					</div>
 					<div id="divCardio" class="wrap-input100 m-b-10 altDisplay">
-						<input id="txtcardiopatia" name="txtcardiopatia" type="text" placeholder="Especifique?" class="form-control input-md" required="">
+						<input id="txtcardiopatia" name="txtcardiopatia" type="text" placeholder="Especifique?" class="form-control input-md">
 					</div>
 				</div>
 			</div>
@@ -156,7 +160,7 @@
 						</label>
 					</div>
 					<div id="divMedic" class="wrap-input100 m-b-10 altDisplay">
-						<input id="txtmedicamento" name="txtmedicamento" type="text" placeholder="Especifique?" class="form-control input-md" required="">
+						<input id="txtmedicamento" name="txtmedicamento" type="text" placeholder="Especifique?" class="form-control input-md">
 					</div>
 				</div>
 				<div class="form-group col-md-6">
@@ -170,7 +174,7 @@
 						</label>
 					</div>
 					<div id="divSuplem" class="wrap-input100 m-b-10 altDisplay">
-						<input id="txtsuplemento" name="txtsuplemento" type="text" placeholder="Especifique?" class="form-control input-md" required="">
+						<input id="txtsuplemento" name="txtsuplemento" type="text" placeholder="Especifique?" class="form-control input-md">
 					</div>
 				</div>
 			</div>

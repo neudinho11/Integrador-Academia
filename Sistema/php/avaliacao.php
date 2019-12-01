@@ -1,5 +1,7 @@
 <?php
-	include "verificaLogin.php";
+session_start();
+include "verificaLogin.php";
+$idU = $_SESSION["usuario"];
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +19,19 @@
 <body>
 
 	<?php
-		include "menu.php";
+	include "menu.php";
 	?>
 
 	<div class="container formAvaliacao">
+
 		<form id="form_Avaliac" action="processarAvaliacao.php" method="POST">
 			<legend class="positionElem">
 				<h2>AVALIAÇÃO</h2>
 			</legend>
+			<div class="row">
+			<div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="<?php echo "listaAvaliacao.php?idU=$idU" ?>">Voltar</a></div>
+			<div class="form-group col-md-11"></div>
+		</div>
 
 			<div class="row">
 				<div class="form-group col-md-4"></div>

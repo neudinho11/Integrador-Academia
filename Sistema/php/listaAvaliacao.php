@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    include "verificaLogin.php";
-    require_once "functions.php";
+session_start();
+include "verificaLogin.php";
+require_once "functions.php";
 ?>
 
 <?php
@@ -45,9 +45,9 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
         </legend>
 
         <div class="row">
-        <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalTrein.php">Voltar</a></div>
-        <div class="form-group col-md-10"></div>
-        <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="avaliacao.php">Nova Avaliação</a></div>
+            <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalTrein.php">Voltar</a></div>
+            <div class="form-group col-md-10"></div>
+            <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="avaliacao.php">Nova Avaliação</a></div>
         </div>
 
         <div id="listUser" class="row">
@@ -81,10 +81,10 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="../js/listaAvaliacao.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../js/listaAvaliacao.js"></script>
 </body>
 
 </html>
