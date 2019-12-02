@@ -135,3 +135,21 @@ create table anamnese(
     id_usuario integer,
     foreign key (id_usuario) references usuario(id_usuario)
 );
+
+create table solicitacoes(
+	id_solicitacoes integer primary key auto_increment,
+    tipo_atendimento varchar(80),
+    dia_semana varchar(80),
+    turno varchar(80),
+    horario varchar(80)
+);
+
+create table trein_usua_solic(
+	id_trein_usua_solic integer primary key auto_increment,
+    id_treinador integer,
+    id_usuario integer,
+    id_solicitacoes integer,
+	foreign key (id_treinador) references treinador(id_treinador),
+    foreign key (id_usuario) references usuario(id_usuario),
+    foreign key (id_solicitacoes) references solicitacoes(id_solicitacoes)
+);

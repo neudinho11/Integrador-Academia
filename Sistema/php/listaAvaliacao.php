@@ -57,6 +57,7 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <?php
     include "menu.php";
+    include "modal.php";
     ?>
 
     <div class="container principal">
@@ -69,12 +70,12 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalTrein.php">Voltar</a></div>
                 <div class="form-group col-md-10"></div>
-                <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="avaliacao.php">Nova Avaliação</a></div>
+                <div class="form-group col-md-1"><a class='btn btn-success btn-xs' href="avaliacao.php">Nova Avaliação</a></div>
             <?php } else { //usuario 
                 ?>
                 <div class="form-group col-md-1"><a class='btn btn-warning btn-xs' href="principalUser.php">Voltar</a></div>
                 <div class="form-group col-md-10"></div>
-                <div class="form-group col-md-1"><a class='btn btn-primary btn-xs' href="#">Solicitar Avaliação</a></div>
+                <div class="form-group col-md-1 pull-right"><button type="button" class='btn btn-success btn-xs' data-toggle="modal" data-target="#myModalcad">Solicitar Avaliação</button></div>
             <?php } ?>
         </div>
 
@@ -99,7 +100,7 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
                                     <td>$aval[treinador]</td>
                                     <td>$aval[data_avaliacao]</td>
                                     <td class='actions'>
-                                        <a class='btn btn-success btn-xs' href='visualizarAvaliacao.php?idA=$aval[id_avaliacao]'>Visualizar</a>
+                                        <a class='btn btn-primary btn-xs' href='visualizarAvaliacao.php?idA=$aval[id_avaliacao]'>Visualizar</a>
                                     </td>
                                 </tr>";
                         }
