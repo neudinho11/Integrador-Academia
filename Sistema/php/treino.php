@@ -59,10 +59,13 @@ $idU = $_SESSION["usuario"];
 			</div>
 			<hr>
 
+			<div class="row" id="divAppend">
+
+			</div>
 			<div class="row" id="divBtn">
-				<div class="form-group col-md-11"></div>
-				<div class="form-group col-md-1">
-					<p class='btn btn-primary' id="btnExerc" name="btnExerc">Exercicio</p>
+				<div class="form-group col-md-10"></div>
+				<div class="form-group col-md-2">
+					<p class='btn btn-primary' id="btnExerc" name="btnExerc">Adicionar Exercicio</p>
 				</div>
 			</div>
 			<input type="hidden" id="ttlExerc" name="ttlExerc" value="">

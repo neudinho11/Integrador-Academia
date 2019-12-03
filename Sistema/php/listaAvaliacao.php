@@ -31,7 +31,7 @@ if ($tipo == "t") {
 $sql = "SELECT u.nome AS usuario, u.matricula, t.nome AS treinador, tua.data_avaliacao, tua.id_avaliacao FROM trein_usua_aval AS tua
 INNER JOIN usuario AS u on tua.id_usuario = u.id_usuario
 INNER jOIN treinador AS t on tua.id_treinador = t.id_treinador
-WHERE tua.id_usuario = :idU";
+WHERE tua.id_usuario = :idU ORDER BY tua.data_avaliacao DESC";
 $query = $conexao->prepare($sql);
 $query->bindParam(":idU", $idU);
 $query->execute();
@@ -98,7 +98,7 @@ $avaliacoes = $query->fetchAll(PDO::FETCH_ASSOC);
                                     <td>$aval[usuario]</td>
                                     <td>$aval[matricula]</td>
                                     <td>$aval[treinador]</td>
-                                    <td>$aval[data_avaliacao]</td>
+                                    <td>".date("d/m/Y", strtotime($aval['data_avaliacao']))."</td>
                                     <td class='actions'>
                                         <a class='btn btn-primary btn-xs' href='visualizarAvaliacao.php?idA=$aval[id_avaliacao]'>Visualizar</a>
                                     </td>

@@ -45,75 +45,75 @@ $idU = $_SESSION["usuario"];
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label for="txtPressao">Pressão Arterial: </label>
-					<input id="txtPressao" name="txtPressao" type="text" placeholder="Pressão" class="form-control input-md" required="">
+					<input id="txtPressao" name="txtPressao" type="text" placeholder="00.0" class="form-control input-md" required="">
 				</div>
 				<div class="form-group col-md-4">
-					<label for="txtPeso">Peso: </label>
-					<input id="txtPeso" name="txtPeso" type="text" placeholder="Peso" class="form-control input-md num" required="">
+					<label for="txtPeso">Peso (KG): </label>
+					<input id="txtPeso" name="txtPeso" type="text" placeholder="00.0" class="form-control input-md num" required="">
 				</div>
 				<div class="form-group col-md-4">
-					<label for="txtAltura">Altura: </label>
-					<input id="txtAltura" name="txtAltura" type="text" placeholder="Altura" class="form-control input-md num" required="">
+					<label for="txtAltura">Altura (M): </label>
+					<input id="txtAltura" name="txtAltura" type="text" placeholder="0.00" class="form-control input-md num" required="">
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label for="txtPescoco">Pescoço: </label>
-					<input id="txtPescoco" name="txtPescoco" type="text" placeholder="Pescoço" class="form-control input-md num" required="">
+					<input id="txtPescoco" name="txtPescoco" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="txtBicepsD">Biceps Direito: </label>
-					<input id="txtBicepsD" name="txtBicepsD" type="text" placeholder="Biceps" class="form-control input-md num" required="">
+					<input id="txtBicepsD" name="txtBicepsD" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="txtBicepsE">Biceps Esquerdo: </label>
-					<input id="txtBicepsE" name="txtBicepsE" type="text" placeholder="Biceps" class="form-control input-md num" required="">
+					<input id="txtBicepsE" name="txtBicepsE" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label for="txtPeito">Peito: </label>
-					<input id="txtPeito" name="txtPeito" type="text" placeholder="Peito" class="form-control input-md num" required="">
+					<input id="txtPeito" name="txtPeito" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="txtAntD">Antebraço Direito: </label>
-					<input id="txtAntD" name="txtAntD" type="text" placeholder="Antebraço" class="form-control input-md num" required="">
+					<input id="txtAntD" name="txtAntD" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="txtAntE">Antebraço Esquerdo: </label>
-					<input id="txtAntE" name="txtAntE" type="text" placeholder="Antebraço" class="form-control input-md num" required="">
+					<input id="txtAntE" name="txtAntE" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label for="txtCintura">Cintura: </label>
-					<input id="txtCintura" name="txtCintura" type="text" placeholder="Cintura" class="form-control input-md num" required="">
+					<input id="txtCintura" name="txtCintura" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="txtCoxaD">Coxa Direito: </label>
-					<input id="txtCoxaD" name="txtCoxaD" type="text" placeholder="Coxa" class="form-control input-md num" required="">
+					<input id="txtCoxaD" name="txtCoxaD" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="txtCoxaE">Coxa Esquerda: </label>
-					<input id="txtCoxaE" name="txtCoxaE" type="text" placeholder="Coxa" class="form-control input-md num" required="">
+					<input id="txtCoxaE" name="txtCoxaE" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label for="txtQuadris">Quadris: </label>
-					<input id="txtQuadris" name="txtQuadris" type="text" placeholder="Quadris" class="form-control input-md num" required="">
+					<input id="txtQuadris" name="txtQuadris" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="txtPantD">Panturrilha Direito: </label>
-					<input id="txtPantD" name="txtPantD" type="text" placeholder="Panturrilha" class="form-control input-md num" required="">
+					<input id="txtPantD" name="txtPantD" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="txtPantE">Panturrilha Esquerda: </label>
-					<input id="txtPantE" name="txtPantE" type="text" placeholder="Panturrilha" class="form-control input-md num" required="">
+					<input id="txtPantE" name="txtPantE" type="text" placeholder="0.0" class="form-control input-md num" required="">
 				</div>
 			</div>
 			<hr>

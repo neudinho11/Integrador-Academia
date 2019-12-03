@@ -85,7 +85,7 @@ create table exercicio(
     nome_exercicio varchar(80),
     series integer,
     repeticoes integer,
-    dia_semana integer
+    dia_semana varchar(80)
 );
 
 create table treino_exercicio(
@@ -140,8 +140,7 @@ create table solicitacoes(
 	id_solicitacoes integer primary key auto_increment,
     tipo_atendimento varchar(80),
     dia_semana varchar(80),
-    turno varchar(80),
-    horario varchar(80)
+    turno varchar(80)
 );
 
 create table trein_usua_solic(

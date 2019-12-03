@@ -23,15 +23,13 @@ $tAtendimento = $_POST["tAtendimento"];
 $treinadorSol = $_POST["treinadorSol"];
 $diaSemana = $_POST["diaSemana"];
 $turno = $_POST["turno"];
-$horario = $_POST["horario"];
 
-$sql = "INSERT INTO solicitacoes (tipo_atendimento, dia_semana, turno, horario) 
-VALUES (:tipo_atendimento, :dia_semana, :turno, :horario)";
+$sql = "INSERT INTO solicitacoes (tipo_atendimento, dia_semana, turno) 
+VALUES (:tipo_atendimento, :dia_semana, :turno)";
 $query = $conexao->prepare($sql);
 $query->bindParam(":tipo_atendimento", $tAtendimento);
 $query->bindParam(":dia_semana", $diaSemana);
 $query->bindParam(":turno", $turno);
-$query->bindParam(":horario", $horario);
 $resultado = $query->execute();
 $idS = $conexao->lastInsertId();
 

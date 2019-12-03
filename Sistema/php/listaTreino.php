@@ -32,7 +32,7 @@ $sql = "SELECT tut.data_criacao AS dc, tut.data_validade AS dv, u.nome AS usuari
 FROM trein_usua_treino AS tut
 INNER JOIN usuario AS u on tut.id_usuario = u.id_usuario
 INNER jOIN treinador AS t on tut.id_treinador = t.id_treinador
-WHERE tut.id_usuario = :idU";
+WHERE tut.id_usuario = :idU ORDER BY tut.data_criacao DESC";
 $query = $conexao->prepare($sql);
 $query->bindParam(':idU', $idU);
 $query->execute();
@@ -97,8 +97,8 @@ $treinos = $query->fetchAll(PDO::FETCH_ASSOC);
                                     <td>$treino[usuario]</td>
                                     <td>$treino[mat]</td>
                                     <td>$treino[treinador]</td>
-                                    <td>$treino[dc]</td>
-                                    <td>$treino[dv]</td>
+                                    <td>".date("d/m/Y", strtotime($treino['dc']))."</td>
+                                    <td>".date("d/m/Y", strtotime($treino['dv']))."</td>
                                     <td class='actions'>
                                         <a class='btn btn-primary btn-xs' href='visualizarTreino.php?idTr=$treino[idTr]'>Visualizar</a>
                                     </td>

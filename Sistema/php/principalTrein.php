@@ -71,7 +71,7 @@ $usuarios = $query->fetchAll(PDO::FETCH_CLASS, "Usuario");
                                         <td>$user->nome</td>
                                         <td>$user->matricula</td>
                                         <td>$user->email</td>
-                                        <td>$user->data_nascimento</td>
+                                        <td>".date("d/m/Y", strtotime($user->data_nascimento))."</td>
                                         <td>$user->sexo</td>
                                         <td class='actions'>
                                             <a class='btn btn-success btn-xs' href='listaAvaliacao.php?idU=$user->id_usuario'>Avaliação</a>

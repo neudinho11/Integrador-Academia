@@ -15,14 +15,15 @@ $obj = $_POST["txtObj"];
 $obs = $_POST["txtObs"];
 $ttlExerc = $_POST["ttlExerc"];
 
+isset($_POST["obj"]) ? $_POST["obj"] : "";
+
 for ($i = 0; $i <= $ttlExerc; $i++) {
-    $nome[$i] = $_POST["nome$i"];
-    $parte[$i] = $_POST["parte$i"];
-    $series[$i] = $_POST["series$i"];
-    $repet[$i] = $_POST["repet$i"];
-    $dia[$i] = $_POST["dia$i"];
+    $nome[$i] = isset($_POST["nome$i"]) ? $_POST["nome$i"] : "";
+    $parte[$i] = isset($_POST["parte$i"]) ? $_POST["parte$i"] : "";
+    $series[$i] = isset($_POST["series$i"]) ? $_POST["series$i"] : "";
+    $repet[$i] = isset($_POST["repet$i"]) ? $_POST["repet$i"] : "";
+    $dia[$i] = isset($_POST["dia$i"]) ? $_POST["dia$i"] : "";
 }
-echo "<br><br><br><br>" . $_POST["ttlExerc"];
 
 
 $conexao = conexaoBD();
@@ -54,23 +55,25 @@ $query->bindParam(":id_treino", $idTr);
 $resultado = $query->execute();
 
 for ($i = 0; $i <= $ttlExerc; $i++) {
-    $sql = "INSERT INTO exercicio (parte_corpo, nome_exercicio, series, repeticoes, dia_semana) 
+    if ($nome[$i] != "" || $nome[$i] != null) {
+        $sql = "INSERT INTO exercicio (parte_corpo, nome_exercicio, series, repeticoes, dia_semana) 
         VALUES (:parte_corpo, :nome_exercicio, :series, :repeticoes, :dia_semana)";
-    $query = $conexao->prepare($sql);
-    $query->bindParam(":parte_corpo", $nome[$i]);
-    $query->bindParam(":nome_exercicio", $parte[$i]);
-    $query->bindParam(":series", $series[$i]);
-    $query->bindParam(":repeticoes", $repet[$i]);
-    $query->bindParam(":dia_semana", $dia[$i]);
-    $resultado = $query->execute();
-    $idEx = $conexao->lastInsertId();
+        $query = $conexao->prepare($sql);
+        $query->bindParam(":parte_corpo", $nome[$i]);
+        $query->bindParam(":nome_exercicio", $parte[$i]);
+        $query->bindParam(":series", $series[$i]);
+        $query->bindParam(":repeticoes", $repet[$i]);
+        $query->bindParam(":dia_semana", $dia[$i]);
+        $resultado = $query->execute();
+        $idEx = $conexao->lastInsertId();
 
-    $sql = "INSERT INTO treino_exercicio (id_treino, id_exercicio) 
+        $sql = "INSERT INTO treino_exercicio (id_treino, id_exercicio) 
         VALUES (:id_treino, :id_exercicio)";
-    $query = $conexao->prepare($sql);
-    $query->bindParam(":id_treino", $idTr);
-    $query->bindParam(":id_exercicio", $idEx);
-    $resultado = $query->execute();
+        $query = $conexao->prepare($sql);
+        $query->bindParam(":id_treino", $idTr);
+        $query->bindParam(":id_exercicio", $idEx);
+        $resultado = $query->execute();
+    }
 }
 
 

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "functions.php";
 
 include "verificaLogin.php";
@@ -35,6 +36,7 @@ $query = $conexao->prepare($sql);
 $query->bindParam(':idU', $idU);
 $query->execute();
 $treino = $query->fetch(PDO::FETCH_ASSOC);
+
 
 ?>
 
