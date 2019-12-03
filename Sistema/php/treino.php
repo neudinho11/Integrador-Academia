@@ -1,6 +1,11 @@
 <?php
 session_start();
 include "verificaLogin.php";
+
+if($_GET['g'] == true){
+	$_SESSION["usuario"] = $_GET['idU'];
+}
+
 $idU = $_SESSION["usuario"];
 ?>
 

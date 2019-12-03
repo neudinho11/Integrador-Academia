@@ -57,8 +57,9 @@ $treino = $query->fetch(PDO::FETCH_ASSOC);
     <?php
     include "menu.php";
     ?>
-    <div class="row">
-        <div class="col-sm-6 principal">
+    <div class="container principal">
+        <div class="table-responsive col-md-12">
+            <br><br><br>
             <legend class="positionElem">
                 <h2>ULTIMA AVALIAÇÃO</h2>
             </legend>
@@ -90,9 +91,7 @@ $treino = $query->fetch(PDO::FETCH_ASSOC);
                     </table>
                 </div>
             </div>
-        </div>
-
-        <div class="col-sm-6 principal">
+            <br><br><br><br>
             <legend class="positionElem">
                 <h2>ULTIMO TREINO</h2>
             </legend>

@@ -1,7 +1,5 @@
 <?php
 
-	include "verificaLogin.php";
-
     function conexaoBD(){
         $dsn = "mysql:host=localhost;dbname=pi_academia";
         $usuario = "root";
@@ -16,3 +14,4 @@
     {
         return sha1(md5($senha));
     }
+?>

@@ -1,6 +1,9 @@
 <?php
-    /*session_start();
-    if(!$_SESSION["matricula"]){
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if(!isset($_SESSION["matricula"])){
         header("Location: index.php");
         exit();
-    }*/
+    }
+?>

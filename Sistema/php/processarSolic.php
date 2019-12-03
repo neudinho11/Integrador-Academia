@@ -24,8 +24,8 @@ $treinadorSol = $_POST["treinadorSol"];
 $diaSemana = $_POST["diaSemana"];
 $turno = $_POST["turno"];
 
-$sql = "INSERT INTO solicitacoes (tipo_atendimento, dia_semana, turno) 
-VALUES (:tipo_atendimento, :dia_semana, :turno)";
+$sql = "INSERT INTO solicitacoes (tipo_atendimento, dia_semana, turno, situacao) 
+VALUES (:tipo_atendimento, :dia_semana, :turno, 'solicitado')";
 $query = $conexao->prepare($sql);
 $query->bindParam(":tipo_atendimento", $tAtendimento);
 $query->bindParam(":dia_semana", $diaSemana);

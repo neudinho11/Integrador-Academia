@@ -37,7 +37,7 @@ if (empty($usuario)) {
     } else {
         $_SESSION['matricula'] = $matricula;
         $_SESSION['tipoLogin'] = "t";
-        header('Location: principalTrein.php');
+        header('Location: principalT.php');
     }
 } else {
     $_SESSION['matricula'] = $matricula;

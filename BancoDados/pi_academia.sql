@@ -63,8 +63,8 @@ create table medidas(
 create table treino(
 	id_treino integer primary key auto_increment,
     dias_treino varchar(255),
-    objetivo varchar(255),
-    observacoes varchar(255)
+    objetivo text,
+    observacoes text
 );
 
 create table trein_usua_treino(
@@ -140,7 +140,8 @@ create table solicitacoes(
 	id_solicitacoes integer primary key auto_increment,
     tipo_atendimento varchar(80),
     dia_semana varchar(80),
-    turno varchar(80)
+    turno varchar(80),
+    situacao varchar(80)
 );
 
 create table trein_usua_solic(

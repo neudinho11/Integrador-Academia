@@ -51,12 +51,15 @@ if (empty($trein)) {
 						<li><a href="listaAvaliacao.php" style="color:white">Avaliações</a></li>
 						<li><a href="listaTreino.php" style="color:white">Treinos</a></li>
 						<li><a href="anamnese.php" style="color:white">Anamnese</a></li>
+						<li><a href="SolicFeitas.php" style="color:white">Solicitações</a></li>
 						<li><a href="logout.php" style="color:white">Sair</a></li>
 					<?php //Treinador
 					}
 					if ($tipo == 1) { ?>
-						<li><a href="principalTrein.php" style="color:white">Início</a></li>
+						<li><a href="principalT.php" style="color:white">Início</a></li>
 						<li><a href="principalTrein.php" style="color:white">Usuarios</a></li>
+						<li><a href="principalT.php" style="color:white">Solicitações</a></li>
+						<li><a href="SolicFin.php" style="color:white">Solicitações Finalizadas</a></li>
 						<li><a href="logout.php" style="color:white">Sair</a></li>
 					<?php } ?>
 				</ul>

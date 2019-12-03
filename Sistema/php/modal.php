@@ -37,7 +37,7 @@ $treinadores = $query->fetchAll(PDO::FETCH_ASSOC);
 								<option>Selecione um atendimento</option>
 								<option value='avaliacao'>Avaliação</option>
 								<option value='treino'>Treino</option>
-								<option value='avalTreino'>Avaliação e Treino</option>
+								<option value='avaliacao e treino'>Avaliação e Treino</option>
 							</select>
 						</div>
 						<div class="form-group">

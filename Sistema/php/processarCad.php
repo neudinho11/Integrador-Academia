@@ -1,6 +1,5 @@
 <?php
 require_once "functions.php";
-include "verificaLogin.php";
 ?>
 
 <?php
@@ -13,9 +12,11 @@ $sexo = $_POST["radSexo"];
 $tipoConta = $_POST["radTipoConta"];
 
 $conexao = conexaoBD();
+
 $senha = makeHash($senha);
 
 if ($tipoConta == "usuario") {
+
     $sql = "INSERT INTO usuario (nome, matricula, email, senha, data_nascimento, sexo, tipo_conta) VALUES (:nome, :matricula, :email, :senha, :data_nascimento, :sexo, :tipo_conta)";
     $query = $conexao->prepare($sql);
     $query->bindParam(":nome", $nome);
